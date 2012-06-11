@@ -1,0 +1,445 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{59C54ED6-C13E-4806-8856-2A4EAD5C9174}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>System.Core</RootNamespace>
+    <AssemblyName>System.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>
+    </DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoStdLib>true</NoStdLib>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <DocumentationFile>bin\Debug\System.Core.xml</DocumentationFile>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>
+    </DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoStdLib>true</NoStdLib>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <DocumentationFile>bin\Release\System.Core.xml</DocumentationFile>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <DelaySign>true</DelaySign>
+  </PropertyGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Browser\Window.cs" />
+    <Compile Include="Browser\History.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Browser\Location.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Browser\Navigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Globals\console.cs" />
+    <Compile Include="Globals\location.cs" />
+    <Compile Include="Globals\navigator.cs" />
+    <Compile Include="Globals\history.cs" />
+    <Compile Include="Globals\window.cs" />
+    <Compile Include="Css\View\MouseEvent.Css.View.cs" />
+    <Compile Include="Css\View\Range.Css.View.cs" />
+    <Compile Include="Css\View\HTMLElement.Css.View.cs" />
+    <Compile Include="Css\View\Element.Css.View.cs" />
+    <Compile Include="Css\View\Document.Css.View.cs" />
+    <Compile Include="Css\View\Screen.cs" />
+    <Compile Include="Css\View\MediaQueryListListener.cs" />
+    <Compile Include="Css\View\MediaQueryList.cs" />
+    <Compile Include="Css\View\Window.Css.View.cs" />
+    <Compile Include="Css\Window.Css.cs" />
+    <Compile Include="Dom\Core\Attr.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dom\Core\CharacterData.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dom\Core\Comment.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dom\Core\DOMTokenList.cs" />
+    <Compile Include="Dom\Core\Document.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dom\Core\DocumentFragment.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dom\Core\DocumentType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dom\Core\DOMException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dom\Core\DOMImplementation.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dom\Core\Element.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dom\Core\HTMLCollection.cs" />
+    <Compile Include="Dom\Core\Node.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dom\Core\NodeList.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dom\Core\ProcessingInstruction.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dom\Core\Text.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dom\Events\Event.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dom\Events\EventListener.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dom\Events\EventTarget.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dom\Events\MouseEvent.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dom\Events\MutationEvent.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dom\Events\UIEvent.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Html\Objects\Option.cs" />
+    <Compile Include="Html\Objects\Image.cs" />
+    <Compile Include="Html\HTMLSpanElement.cs" />
+    <Compile Include="Html\HTML5.cs" />
+    <Compile Include="Html\HTMLTableDataCellElement.cs" />
+    <Compile Include="Html\HTMLTableHeaderCellElement.cs" />
+    <Compile Include="Html\HTMLAnchorElement.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Html\HTMLAreaElement.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Html\HTMLBaseElement.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Html\HTMLBodyElement.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Html\HTMLBRElement.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Html\HTMLButtonElement.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Html\HTMLDivElement.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Html\HTMLDListElement.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Html\Document.Html.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Html\HTMLElement.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Html\HTMLFieldSetElement.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Html\HTMLFormElement.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Html\HTMLHeadElement.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Html\HTMLHeadingElement.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Html\HTMLHRElement.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Html\HTMLHtmlElement.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Html\HTMLIFrameElement.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Html\HTMLImageElement.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Html\HTMLInputElement.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Html\HTMLLabelElement.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Html\HTMLLegendElement.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Html\HTMLLIElement.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Html\HTMLLinkElement.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Html\HTMLMapElement.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Html\HTMLMenuElement.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Html\HTMLMetaElement.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Html\HTMLObjectElement.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Html\HTMLOListElement.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Html\HTMLOptGroupElement.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Html\HTMLOptionElement.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Html\HTMLOptionsCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Html\HTMLParagraphElement.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Html\HTMLParamElement.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Html\HTMLPreElement.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Html\HTMLQuoteElement.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Html\HTMLScriptElement.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Html\HTMLSelectElement.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Html\HTMLStyleElement.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Html\HTMLTableCaptionElement.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Html\HTMLTableCellElement.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Html\HTMLTableColElement.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Html\HTMLTableElement.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Html\HTMLTableRowElement.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Html\HTMLTableSectionElement.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Html\HTMLTextAreaElement.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Html\HTMLTitleElement.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Html\HTMLUListElement.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dom\Range\Range.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Css\CSSFontFaceRule.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Css\CSSImportRule.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Css\CSSMediaRule.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Css\CSSPageRule.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Css\CSSRule.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Css\CSSStyleDeclaration.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Css\CSSStyleRule.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Css\CSSStyleSheet.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Css\View\ClientRect.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Css\Document.Css.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Css\LinkStyle.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Css\MediaList.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Css\StyleSheet.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dom\Traversal\NodeFilter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dom\Traversal\NodeIterator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dom\Traversal\TreeWalker.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Ecma\Date.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Ecma\Error.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Ecma\Function.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Ecma\Window.Ecma.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Ecma\Math.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Ecma\Number.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Ecma\RegExp.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Globals\screen.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\mscorlib\Blade.Runtime.mscorlib.csproj">
+      <Project>{E415F2ED-194D-44F9-8D11-0637A1DC949F}</Project>
+      <Name>Blade.Runtime.mscorlib</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>echo F | xcopy /Y "$(TargetPath)" "$(SolutionDir)Bin\"
+echo F | xcopy /Y "$(TargetDir)$(TargetName).xml" "$(SolutionDir)Bin\"
+
+rem -- set working directory to .NET 4.0 profile
+cd "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\Profile"
+
+rem -- moving assembly works around inability to overwrite locked files (if in use by another project)
+move /Y Blade\System.Core.dll Blade\System.Core.dll.old
+
+rem -- copy assembly and XML comments files to profile
+echo F | xcopy /Y "$(TargetDir)System.Core.dll" Blade\System.Core.dll
+echo F | xcopy /Y "$(TargetDir)System.Core.xml" Blade\System.Core.xml
+
+rem -- make sure latest Framework list file is always available on the profile
+echo F | xcopy /Y "$(SolutionDir)Resources\FrameworkList.xml" Blade\RedistList\FrameworkList.xml
+
+rem -- attempt to remove the old assembly (this may fail if in use by a project)
+del Blade\System.Core.dll.old</PostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
