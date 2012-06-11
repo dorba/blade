@@ -20,7 +20,7 @@ Nope. Like we said, we like JavaScript! The Blade runtime libraries are accurate
 
 #### What's the fastest way to give it a try? ####
 
-Look in the root bin directory, and grab the latest prebuilt installer binary. While that's running, navigate over to the docs directory and take a look at the user guide. You can also clone and build the full Blade source code to achieve a similar result without executing the installer. If you prefer that route, refer to the user guide for more detailed instructions.
+Look in the release directory, and grab the latest prebuilt installer binary. While that's running, navigate over to the docs directory and take a look at the user guide. You can also clone and build the full Blade source code to achieve a similar result without executing the installer. If you prefer that route, refer to the user guide for more detailed instructions.
 
 #### And remember... ####
 
