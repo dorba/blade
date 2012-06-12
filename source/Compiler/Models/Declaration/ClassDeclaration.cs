@@ -94,7 +94,9 @@ namespace Blade.Compiler.Models
         /// <returns>True if the class has instance members, false otherwise.</returns>
         public bool HasAnyInstanceMembers()
         {
-            return GetMemberDeclarations().Any(m => !m.IsStatic);
+            return GetMemberDeclarations()
+                .Except(Constructors)
+                .Any(m => !m.IsStatic);
         }
 
         /// <summary>
