@@ -12,8 +12,10 @@ Blade.targets
 
   <Target Name="AfterCompile" DependsOnTargets="$(CoreCompile)">
     <BuildTask
-        ProjectPath="$(MSBuildProjectFullPath)"
-        ScriptPath="$(OutDir)$(TargetName).js">
+      ProjectPath="$(MSBuildProjectFullPath)"
+      ScriptPath="$(OutDir)$(TargetName).js"
+      SourceFiles="@(Compile)"
+      References="@(ReferencePath);@(ReferenceDependencyPaths)">
     </BuildTask>
   </Target>
 

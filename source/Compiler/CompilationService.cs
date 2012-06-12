@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Blade.Compiler.Diagnostics;
@@ -7,7 +8,7 @@ using Blade.Compiler.Transformation;
 using Blade.Compiler.Translation;
 using Blade.Compiler.Validation;
 using Roslyn.Compilers;
-using Roslyn.Services;
+using Roslyn.Compilers.Common;
 
 namespace Blade.Compiler
 {
@@ -22,20 +23,14 @@ namespace Blade.Compiler
         /// <param name="projectPath">The project path.</param>
         /// <param name="scriptPath">The script file path.</param>
         /// <returns>The compilation result.</returns>
-        public CompilationResult CompileProject(string projectPath, string scriptPath = null)
+        public CompilationResult CompileProject(string projectPath, string scriptPath, IEnumerable<string> sourcePaths, IEnumerable<string> refPaths)
         {
             // ensure project path is valid
             if (String.IsNullOrEmpty(projectPath) || !File.Exists(projectPath))
                 return CompilationResult.FatalError("Unable to locate project file at " + projectPath);
 
-            // load project and create compilation
-            var project = Workspace.LoadStandAloneProject(projectPath)
-                .CurrentSolution.Projects.Single();
-
-            if (project == null)
-                return CompilationResult.FatalError("Unable to open project file at " + projectPath);
-
-            var compilation = project.GetCompilation();
+            // create project compilation
+            CommonCompilation compilation = CreateCompilation(projectPath, sourcePaths, refPaths);
 
             // workaround for project refs bug in Roslyn June 2012 CTP
             var fileRefs = compilation.References.OfType<AssemblyFileReference>();
@@ -58,6 +53,25 @@ namespace Blade.Compiler
             {
                 return pipeline.Compile(compilation, stream);
             }
+        }
+
+        // non specific compilation creation
+        private CommonCompilation CreateCompilation(string projectPath, IEnumerable<string> sourcePaths, IEnumerable<string> refPaths)
+        {
+            if (projectPath.EndsWith("", StringComparison.OrdinalIgnoreCase))
+                return CreateCSharpCompilation(sourcePaths, refPaths);
+
+            throw new NotImplementedException("Cannot create compilation from file: " + projectPath);
+        }
+
+        // create a C# compilation
+        private Roslyn.Compilers.CSharp.Compilation CreateCSharpCompilation(IEnumerable<string> sourcePaths, IEnumerable<string> refPaths)
+        {
+
+            return Roslyn.Compilers.CSharp.Compilation.Create("CSComp.cll",
+            options: new Roslyn.Compilers.CSharp.CompilationOptions(OutputKind.DynamicallyLinkedLibrary),
+            syntaxTrees: sourcePaths.Select(p => Roslyn.Compilers.CSharp.SyntaxTree.ParseCompilationUnit(File.ReadAllText(p), p)),
+            references: refPaths.Select(p => new Roslyn.Compilers.AssemblyFileReference(p)));
         }
     }
 }
