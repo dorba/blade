@@ -30,7 +30,7 @@ namespace Blade.Compiler
                 return CompilationResult.FatalError("Unable to locate project file at " + projectPath);
 
             // create project compilation
-            CommonCompilation compilation = CreateCompilation(projectPath, sourcePaths, refPaths);
+            var compilation = CreateCompilation(projectPath, sourcePaths, refPaths);
 
             // workaround for project refs bug in Roslyn June 2012 CTP
             var fileRefs = compilation.References.OfType<AssemblyFileReference>();
