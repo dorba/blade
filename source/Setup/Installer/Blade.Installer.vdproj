@@ -87,12 +87,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_8D549299AA6546F497D6535B2DF7EF65"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_916E1602D0FFDE945AEDCD301DCD5DEC"
         "OwnerKey" = "8:_4408EE29BD44581348C635D9FEA2385C"
         "MsmSig" = "8:_UNDEFINED"
@@ -100,12 +94,6 @@
         "Entry"
         {
         "MsmKey" = "8:_94D81958B39B410AAD1AB2A17377726B"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_CF3C4689B09B47B2B0E0110BE81C90BE"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -129,14 +117,20 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_E6733132EDFA450E94391362F6211819"
-        "OwnerKey" = "8:_UNDEFINED"
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_94D81958B39B410AAD1AB2A17377726B"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_94D81958B39B410AAD1AB2A17377726B"
+        "OwnerKey" = "8:_2958797E75A7479A97A59B22D531D205"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_4408EE29BD44581348C635D9FEA2385C"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -155,18 +149,6 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_3944C9F911026A00B809571DE3D728DB"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_4408EE29BD44581348C635D9FEA2385C"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_2958797E75A7479A97A59B22D531D205"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -535,26 +517,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_8D549299AA6546F497D6535B2DF7EF65"
-            {
-            "SourcePath" = "8:..\\..\\Bin\\VSIX\\extension.vsixmanifest"
-            "TargetName" = "8:extension.vsixmanifest"
-            "Tag" = "8:"
-            "Folder" = "8:_7BA26EF49508418EBB90A1A9A3D0F338"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_916E1602D0FFDE945AEDCD301DCD5DEC"
             {
             "AssemblyRegister" = "3:1"
@@ -603,26 +565,6 @@
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_7FB6EDE6093240C3A7886D20FFAF3398"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_CF3C4689B09B47B2B0E0110BE81C90BE"
-            {
-            "SourcePath" = "8:..\\..\\Bin\\VSIX\\ItemTemplates\\CSharp\\1033\\Class.zip"
-            "TargetName" = "8:Class.zip"
-            "Tag" = "8:"
-            "Folder" = "8:_425120A0404444CCB17D11BAF6C80BE7"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -697,26 +639,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_E6733132EDFA450E94391362F6211819"
-            {
-            "SourcePath" = "8:..\\..\\Bin\\VSIX\\ProjectTemplates\\CSharp\\1033\\ProjectTemplate1.zip"
-            "TargetName" = "8:ProjectTemplate1.zip"
-            "Tag" = "8:"
-            "Folder" = "8:_E9E11087811640388838380815A16E50"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
         }
         "FileType"
         {
@@ -733,84 +655,6 @@
             "Property" = "8:TARGETDIR"
                 "Folders"
                 {
-                }
-            }
-            "{994432C3-9487-495D-8656-3E829A8DBDDE}:_7BA26EF49508418EBB90A1A9A3D0F338"
-            {
-            "DefaultLocation" = "8:[VSINSTALLDIR64]Extensions\\Blade"
-            "Name" = "8:VsExt64"
-            "AlwaysCreate" = "11:TRUE"
-            "Condition" = "8:Not VSINSTALLDIR64 = \"\""
-            "Transitive" = "11:FALSE"
-            "Property" = "8:VSEXT64"
-                "Folders"
-                {
-                    "{9EF0B969-E518-4E46-987F-47570745A589}:_266CA62AE33547F5A44D477782905AA4"
-                    {
-                    "Name" = "8:ItemTemplates"
-                    "AlwaysCreate" = "11:FALSE"
-                    "Condition" = "8:"
-                    "Transitive" = "11:FALSE"
-                    "Property" = "8:_24A229B589DB48CCA6F0320952BA8375"
-                        "Folders"
-                        {
-                            "{9EF0B969-E518-4E46-987F-47570745A589}:_6CEB9BF69B3A40C3BF602C288CC49EA1"
-                            {
-                            "Name" = "8:CSharp"
-                            "AlwaysCreate" = "11:FALSE"
-                            "Condition" = "8:"
-                            "Transitive" = "11:FALSE"
-                            "Property" = "8:_90048C145C5F4A3D897031FA43598DC0"
-                                "Folders"
-                                {
-                                    "{9EF0B969-E518-4E46-987F-47570745A589}:_425120A0404444CCB17D11BAF6C80BE7"
-                                    {
-                                    "Name" = "8:1033"
-                                    "AlwaysCreate" = "11:FALSE"
-                                    "Condition" = "8:"
-                                    "Transitive" = "11:FALSE"
-                                    "Property" = "8:_8488C46F2071421D97BDE438FC9F6D1E"
-                                        "Folders"
-                                        {
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    "{9EF0B969-E518-4E46-987F-47570745A589}:_F2C3B98ADD774ECFBEF96509AC56EBF6"
-                    {
-                    "Name" = "8:ProjectTemplates"
-                    "AlwaysCreate" = "11:FALSE"
-                    "Condition" = "8:"
-                    "Transitive" = "11:FALSE"
-                    "Property" = "8:_5D646D69CE9D4DD2894D137960C2315D"
-                        "Folders"
-                        {
-                            "{9EF0B969-E518-4E46-987F-47570745A589}:_0E2A0AE094FD48BF8B2DF2BC397FA66D"
-                            {
-                            "Name" = "8:CSharp"
-                            "AlwaysCreate" = "11:FALSE"
-                            "Condition" = "8:"
-                            "Transitive" = "11:FALSE"
-                            "Property" = "8:_4C539D2B4535423BA6C2B9A345EC13BE"
-                                "Folders"
-                                {
-                                    "{9EF0B969-E518-4E46-987F-47570745A589}:_E9E11087811640388838380815A16E50"
-                                    {
-                                    "Name" = "8:1033"
-                                    "AlwaysCreate" = "11:FALSE"
-                                    "Condition" = "8:"
-                                    "Transitive" = "11:FALSE"
-                                    "Property" = "8:_EEC250428B99484F942108AD7F7FB870"
-                                        "Folders"
-                                        {
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
                 }
             }
             "{994432C3-9487-495D-8656-3E829A8DBDDE}:_7FB6EDE6093240C3A7886D20FFAF3398"
@@ -850,12 +694,12 @@
             }
             "{994432C3-9487-495D-8656-3E829A8DBDDE}:_8EF516116BC440F7A8C7E16B80DBEC7D"
             {
-            "DefaultLocation" = "8:[VSINSTALLDIR32]Extensions\\Blade"
-            "Name" = "8:VsExt32"
+            "DefaultLocation" = "8:[VSINSTALLDIR]Extensions\\Blade"
+            "Name" = "8:VsExt"
             "AlwaysCreate" = "11:TRUE"
-            "Condition" = "8:Not VSINSTALLDIR32 = \"\""
+            "Condition" = "8:"
             "Transitive" = "11:FALSE"
-            "Property" = "8:VSEXTDIR32"
+            "Property" = "8:VSEXTDIR"
                 "Folders"
                 {
                     "{9EF0B969-E518-4E46-987F-47570745A589}:_185404EDC0FF41A0A3F6DEBAB7C928B6"
@@ -929,24 +773,23 @@
         }
         "LaunchCondition"
         {
+            "{836E08B8-0285-4809-BA42-01DB6754A45D}:_A7D996E217F14D5EBE5C3DB5A8DA63F8"
+            {
+            "Name" = "8:Visual Studio Install"
+            "Condition" = "8:VSINSTALLDIR"
+            "Message" = "8:Unable to resolve Visual Studio install directory."
+            "InstallUrl" = "8:"
+            }
         }
         "Locator"
         {
             "{CF66B7F7-B7DA-4B08-A67A-233430638C9C}:_0E8BF037E85545A1AF0D86C7A553A6E8"
             {
-            "Name" = "8:VsInstallDir32"
+            "Name" = "8:VsInstallDir"
             "Root" = "2:1"
             "RegKey" = "8:SOFTWARE\\Microsoft\\VisualStudio\\10.0"
             "Value" = "8:InstallDir"
-            "Property" = "8:VSINSTALLDIR32"
-            }
-            "{CF66B7F7-B7DA-4B08-A67A-233430638C9C}:_7432DA4C5AEE4A74A604F3FBC2F8C801"
-            {
-            "Name" = "8:VsInstallDir64"
-            "Root" = "2:1"
-            "RegKey" = "8:SOFTWARE\\Wow6432Node\\Microsoft\\VisualStudio\\10.0"
-            "Value" = "8:InstallDir"
-            "Property" = "8:VSINSTALLDIR64"
+            "Property" = "8:VSINSTALLDIR"
             }
         }
         "MsiBootstrapper"
@@ -959,7 +802,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Blade"
         "ProductCode" = "8:{3E09354C-5462-4C10-9225-ACDD301AD24F}"
-        "PackageCode" = "8:{5A455270-29D1-42AD-B104-41A797FB86FB}"
+        "PackageCode" = "8:{660C5BE4-731D-476C-975D-6AC98F3B2837}"
         "UpgradeCode" = "8:{8F326594-1F11-4BAC-B297-A54C38EB2FB7}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
