@@ -1,0 +1,22 @@
+﻿<!--
+***********************************************************************************************
+Blade.targets
+***********************************************************************************************
+-->
+
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+
+  <UsingTask TaskName="Blade.Build.BuildTask" AssemblyFile="Blade.Build.dll" />
+
+  <Target Name="AfterCompile" DependsOnTargets="$(CoreCompile)">
+    <BuildTask
+      ProjectPath="$(MSBuildProjectFullPath)"
+      ScriptPath="$(OutDir)$(TargetName).js"
+      SourceFiles="@(Compile)"
+      References="@(ReferencePath);@(ReferenceDependencyPaths)">
+    </BuildTask>
+  </Target>
+
+</Project>

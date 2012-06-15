@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FileList Redist="Blade-Core.1.0" Name=".NET Framework 4 Blade Profile" RuntimeVersion="4.0" ToolsVersion="4.0">
+  <File AssemblyName="mscorlib" Version="1.0.0.0" Culture="neutral" ProcessorArchitecture="MSIL" InGac="false" />
+  <File AssemblyName="System.Core" Version="1.0.0.0" Culture="neutral" ProcessorArchitecture="MSIL" InGac="false" />
+</FileList>
