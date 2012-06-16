@@ -95,6 +95,8 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Browser\ReadyState.cs" />
+    <Compile Include="Browser\XMLHttpRequest.cs" />
     <Compile Include="Browser\Window.cs" />
     <Compile Include="Browser\History.cs">
       <SubType>Code</SubType>
