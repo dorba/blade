@@ -20,6 +20,9 @@ namespace Blade.Compiler.Translation
             switch (model.Operator)
             {
                 case "??": return "||";
+                case "==": return "===";
+                case "!=": return "!==";
+
                 default: return model.Operator;
             }
         }
