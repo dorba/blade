@@ -35,34 +35,24 @@ namespace Blade.Compiler.Validation
 
         private void ValidateMethod(MethodDeclaration method, List<string> list, CompilationResult result)
         {
-            var name = method.Name;
-
-            if (String.IsNullOrWhiteSpace(name))
+            if (!String.IsNullOrWhiteSpace(method.Name))
             {
-                result.AddError(new CompilationMessage
-                {
-                    FilePath = method.OriginatingTree != null ? method.OriginatingTree.FilePath : null,
-                    Location = DocumentLocation.FromTreeNode(method.OriginatingTree, method.OriginatingNode),
-                    Message = "All generated method calls must have a valid name."
-                });
 
-                return;
+                if (list.Contains(method.Name))
+                {
+                    result.AddError(new CompilationMessage
+                    {
+                        FilePath = method.OriginatingTree != null ? method.OriginatingTree.FilePath : null,
+                        Location = DocumentLocation.FromTreeNode(method.OriginatingTree, method.OriginatingNode),
+                        Message = "Method overloading is not supported. Consider using optional parameters, " +
+                            "or providing an alternate name using the ScriptName attribute."
+                    });
+
+                    return;
+                }
             }
 
-            if (list.Contains(name))
-            {
-                result.AddError(new CompilationMessage
-                {
-                    FilePath = method.OriginatingTree != null ? method.OriginatingTree.FilePath : null,
-                    Location = DocumentLocation.FromTreeNode(method.OriginatingTree, method.OriginatingNode),
-                    Message = "Method overloading is not supported. Consider using optional parameters, " +
-                        "or providing an alternate name using the ScriptName attribute."
-                });
-
-                return;
-            }
-
-            list.Add(name);
+            list.Add(method.Name);
         }
     }
 }

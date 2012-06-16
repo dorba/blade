@@ -228,6 +228,15 @@ namespace Blade.Compiler.Translation
             return "null";
         }
 
+        /// <summary>
+        /// Creates a new positional writer for this context at the current stream position.
+        /// </summary>
+        /// <returns>The newly created writer.</returns>
+        public PositionalWriter CreatePositionalWriter()
+        {
+            return new PositionalWriter(this, (int)OutputStream.Position);
+        }
+
         #region Text Writing
 
         /// <summary>
@@ -261,6 +270,44 @@ namespace Blade.Compiler.Translation
         public void WriteLine(string value)
         {
             Write(value + Environment.NewLine);
+        }
+
+        /// <summary>
+        /// Writes a value at a specific position in the stream.
+        /// </summary>
+        /// <param name="index">The position.</param>
+        /// <param name="value">The value to write.</param>
+        /// <param name="overwrite">True to overwrite the existing text, false to insert.</param>
+        public void WriteAt(int index, string value, bool overwrite = false)
+        {
+            var origin = OutputStream.Position;
+
+            try
+            {
+                // load a specific char
+                OutputStream.Seek(index, SeekOrigin.Begin);
+
+                if (!overwrite)
+                {
+                    // capture the original data
+                    var buffer = new byte[OutputStream.Length - OutputStream.Position];
+                    var origData = OutputStream.Read(buffer, 0, buffer.Length);
+
+                    // write the new value
+                    OutputStream.Seek(index, SeekOrigin.Begin);
+                    Write(value);
+
+                    // re-write the original data
+                    OutputStream.Write(buffer, 0, buffer.Length);
+                    origin += value.Length;
+                }
+                else Write(value);
+            }
+            finally
+            {
+                // always return to the end origin
+                OutputStream.Seek(origin, SeekOrigin.Begin);
+            }
         }
 
         /// <summary>

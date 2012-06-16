@@ -15,23 +15,39 @@ namespace Blade.Compiler.Translation
                 HandleExtensionMethod(model, context))
                 return;
 
-            if (model.Expression != null)
-            {
-                var preLen = context.Length;
-                context.WriteModel(model.Expression);
+            var hasExpression = false;
+            var hasMember = false;
+            var length = context.Length;
 
-                // only write dot if left expression
-                // produced some actual output 
-                if (context.Length > preLen)
-                    context.Write(".");
+            // write the member access expression
+            context.WriteModel(model.Expression);
+            if (context.Length > length)
+            {
+                // check if any text was actually written.
+                hasExpression = true;
+                length = context.Length;
             }
 
+            // get a placeholder to the dot position
+            var dotWriter = context.CreatePositionalWriter();
+
+            // account for making explicit base calls.
             var explicitCall = context.UsingExplicitCall;
             if (model.Expression as BaseExpression != null)
                 context.UsingExplicitCall = true;
 
+            // write the member name
             context.WriteModel(model.Member);
             context.UsingExplicitCall = explicitCall;
+
+            // check again if any text was written.
+            if (context.Length > length)
+                hasMember = true;
+
+            // if the member access wrote text for both the
+            // expression and member, add a dot between them
+            if (hasExpression && hasMember)
+                dotWriter.Write(".");
         }
 
         private bool HandleExtensionMethod(MemberAccessExpression model, TranslationContext context)

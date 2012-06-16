@@ -14,6 +14,4 @@ namespace Blade.Compiler.Translation
         /// <param name="context">The translation context.</param>
         void Translate(IModel model, TranslationContext context);
     }
-
-
 }

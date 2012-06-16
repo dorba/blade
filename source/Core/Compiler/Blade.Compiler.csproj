@@ -244,6 +244,7 @@
     <Compile Include="Translation\Common\BlockTranslator.cs" />
     <Compile Include="Translation\Common\ParameterTranslator.cs" />
     <Compile Include="Translation\Common\VariableDeclaratorTranslator.cs" />
+    <Compile Include="Translation\PositionalWriter.cs" />
     <Compile Include="Translation\Declaration\ClassTranslator.cs" />
     <Compile Include="Translation\Declaration\EnumTranslator.cs" />
     <Compile Include="Translation\Declaration\EventTranslator.cs" />
