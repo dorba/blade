@@ -12,17 +12,20 @@ namespace System.Browser
         /// <summary>
         /// Represents the numeric value of infinity.
         /// </summary>
-        object Infinity { get; }
+        [ScriptField]
+        dynamic Infinity { get; }
 
         /// <summary>
         /// Represents the numeric value of a non-numeric value
         /// </summary>
-        object NaN { get; }
+        [ScriptField]
+        dynamic NaN { get; }
 
         /// <summary>
         /// Represents the undefined object.
         /// </summary>
-        object undefined { get; }
+        [ScriptField]
+        dynamic undefined { get; }
 
         /// <summary>
         /// Replaces each UTF-8 escape sequence with the character that it represents.

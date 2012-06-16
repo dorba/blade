@@ -489,17 +489,20 @@ public sealed class window : Window
 	/// <summary>
 	/// Represents the numeric value of infinity.
 	/// </summary>
-	public static object Infinity { get; private set; }
+    [ScriptField]
+    public static dynamic Infinity { get; private set; }
 
 	/// <summary>
 	/// Represents the numeric value of a non-numeric value
 	/// </summary>
-	public static object NaN { get; private set; }
+    [ScriptField]
+    public static dynamic NaN { get; private set; }
 
 	/// <summary>
 	/// Represents the undefined object.
 	/// </summary>
-	public static object undefined { get; private set; }
+    [ScriptField]
+	public static dynamic undefined { get; private set; }
 
 	/// <summary>
 	/// Replaces each UTF-8 escape sequence with the character that it represents.
@@ -571,6 +574,12 @@ public sealed class window : Window
 	/// <param name="useCapture">Whether or not to use capture.</param>
 	public static void addEventListener(string type, EventListener listener, bool useCapture) { }
 
+    /// <summary>
+    /// Registers an event handler with the target.
+    /// </summary>
+    /// <param name="type">The event type name.</param>
+    /// <param name="handler">The event handler function.</param>
+    /// <param name="useCapture">Whether or not to use capture.</param>
 	public static void addEventListener(string type, EventHandler handler, bool useCapture) { }
 
 	/// <summary>
