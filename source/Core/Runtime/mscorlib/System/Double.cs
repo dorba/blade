@@ -1,9 +1,12 @@
 
+using System.Reflection;
+
 namespace System
 {
 	/// <summary>
-	/// System double implementation, exposed as ECMA Number.
+    /// System double implementation, exposed as ECMAScript Number.
 	/// </summary>
+    [EditorBrowsable(EditorBrowsableState.Never)]
 	public struct Double : INumber
 	{
 		/// <summary>

@@ -1,8 +1,11 @@
 
 namespace System
-{  
+{
+    /// <summary>
+    /// Specifies the usage of another attribute class. This class cannot be inherited.
+    /// </summary>
     [AttributeUsage(AttributeTargets.Class, Inherited = true)]
-    public class AttributeUsageAttribute : Attribute
+    public sealed class AttributeUsageAttribute : Attribute
     {
         private AttributeTargets _validOn = AttributeTargets.All;
         private bool _allowMultiple = false;

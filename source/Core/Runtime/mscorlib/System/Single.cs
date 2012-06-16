@@ -1,9 +1,12 @@
 
+using System.Reflection;
+
 namespace System
 {
 	/// <summary>
 	/// System float implementatin, exposed as ECMA Number.
 	/// </summary>
+    [EditorBrowsable(EditorBrowsableState.Never)]
 	public struct Single : INumber
 	{
 		/// <summary>

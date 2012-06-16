@@ -4,7 +4,8 @@ using System.Reflection;
 namespace System
 {
     /// <summary>
-    /// For compiler compatibility, not for use within blade.
+    /// For compiler compatibility.
+    /// Not for use within blade.
     /// </summary>
     [EditorBrowsable(EditorBrowsableState.Never)]
     public struct IntPtr

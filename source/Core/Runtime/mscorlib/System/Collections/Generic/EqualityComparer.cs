@@ -4,14 +4,12 @@ namespace System.Collections.Generic
 {
     /// <summary>
     /// Provides a base class for implementations of the IEqualityComparer generic interface.
-    /// This class exists for compatibility with the C# compiler and is not intended to be used directly.
     /// </summary>
     /// <typeparam name="T">The type of objects to compare.</typeparam>
     /// <remarks>
     /// This is required and used by the C# compiler when creating anonymous type declarations.
     /// </remarks>
     [EditorBrowsable(EditorBrowsableState.Never)]
-    [Obsolete("This class exists for compatibility with the C# compiler and is not intended to be used directly.", true)]
     public abstract class EqualityComparer<T>
     {
         /// <summary>

@@ -1,7 +1,15 @@
 
+using System.Reflection;
+
 namespace System.Runtime.InteropServices
 {
-	[AttributeUsage(AttributeTargets.Assembly | AttributeTargets.Class | AttributeTargets.Struct | AttributeTargets.Enum | AttributeTargets.Method | AttributeTargets.Property | AttributeTargets.Field | AttributeTargets.Interface | AttributeTargets.Delegate, Inherited = false), ComVisible(true)]
+    /// <summary>
+    /// For project compatibility.
+    /// Not for use within blade.
+    /// </summary>
+    [EditorBrowsable(EditorBrowsableState.Never)]
+	[AttributeUsage(AttributeTargets.Assembly | AttributeTargets.Class | AttributeTargets.Struct | AttributeTargets.Enum |
+        AttributeTargets.Method | AttributeTargets.Property | AttributeTargets.Field | AttributeTargets.Interface | AttributeTargets.Delegate, Inherited = false), ComVisible(true)]
 	public sealed class ComVisibleAttribute : Attribute
 	{
 		internal bool _val;

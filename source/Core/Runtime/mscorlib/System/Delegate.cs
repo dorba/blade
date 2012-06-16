@@ -1,9 +1,12 @@
 
+using System.Reflection;
+
 namespace System
 {
     /// <summary>
     /// The System Delegate class.
     /// </summary>
+    [EditorBrowsable(EditorBrowsableState.Never)]
     public abstract class Delegate : IFunction
     {
         /// <summary>
@@ -36,9 +39,13 @@ namespace System
         /// <returns></returns>
         public object apply(object thisArg, object[] args) { return null; }
 
+        #region Required Compiler Methods
+
         public static Delegate Combine(Delegate a, Delegate b) { return null; }
         public static Delegate Combine(params Delegate[] delegates) { return null; }
         public static Delegate Remove(Delegate source, Delegate value) { return null; }
+
+        #endregion
     }
 }
 

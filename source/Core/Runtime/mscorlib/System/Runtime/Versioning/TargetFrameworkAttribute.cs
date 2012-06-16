@@ -1,6 +1,13 @@
 
+using System.Reflection;
+
 namespace System.Runtime.Versioning
 {
+    /// <summary>
+    /// For project compatibility.
+    /// Not for use within blade.
+    /// </summary>
+    [EditorBrowsable(EditorBrowsableState.Never)]
     [AttributeUsage(AttributeTargets.Assembly, Inherited = false, AllowMultiple = false)]
     public class TargetFrameworkAttribute : Attribute
     {

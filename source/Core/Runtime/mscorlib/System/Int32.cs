@@ -1,9 +1,12 @@
 
+using System.Reflection;
+
 namespace System
 {
 	/// <summary>
-	/// System int implementation, exposed as ECMA Number.
+    /// System int implementation, exposed as ECMAScript Number.
 	/// </summary>
+    [EditorBrowsable(EditorBrowsableState.Never)]
     public struct Int32 : INumber
 	{
 		/// <summary>
