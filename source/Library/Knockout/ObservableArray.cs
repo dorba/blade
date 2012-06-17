@@ -357,10 +357,5 @@ namespace Knockout
         {
             return null;
         }
-
-        // -- candidates for public API --
-        // -------------------------------
-        // equalityComparer
-        // -------------------------------
     }
 }

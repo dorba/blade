@@ -85,10 +85,5 @@ namespace Knockout
         public static void extend<T>(this Observable<T> observable, object extenders)
         {
         }
-
-        // -- candidates for public API --
-        // -------------------------------
-        // equalityComparer
-        // -------------------------------
     }
 }

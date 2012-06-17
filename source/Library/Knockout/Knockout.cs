@@ -216,20 +216,5 @@ namespace Knockout
         {
             return null;
         }
-
-        // -- candidates for public API --
-        // -------------------------------
-        // bindingProvider
-        // jqueryTmplTemplateEngine
-        // jsonExpressionRewriting
-        // memoization
-        // nativeTemplateEngine
-        // renderTemplate
-        // selectExtensions
-        // templateEngine
-        // templateRewriting
-        // templateSources
-        // virtualElements
-        // -------------------------------
     }
 }
