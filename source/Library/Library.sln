@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Knockout", "Knockout\Knockout.csproj", "{5B1CB34F-2F0A-4493-B832-4414FDFC3F89}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "jQuery", "jQuery\jQuery.csproj", "{023BCE7F-4A0C-4051-91B2-54CE7CB91E96}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{5B1CB34F-2F0A-4493-B832-4414FDFC3F89}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5B1CB34F-2F0A-4493-B832-4414FDFC3F89}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5B1CB34F-2F0A-4493-B832-4414FDFC3F89}.Release|Any CPU.Build.0 = Release|Any CPU
+		{023BCE7F-4A0C-4051-91B2-54CE7CB91E96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{023BCE7F-4A0C-4051-91B2-54CE7CB91E96}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{023BCE7F-4A0C-4051-91B2-54CE7CB91E96}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{023BCE7F-4A0C-4051-91B2-54CE7CB91E96}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
