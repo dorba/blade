@@ -9,7 +9,7 @@ namespace System.Browser
     /// <summary>
     /// Represents the browser's XMLHttpRequest object.
     /// </summary>
-    public sealed class XMLHttpRequest
+    public class XMLHttpRequest
     {
         /// <summary>
         /// Gets or sets a function that is called whenever the readyState attribute changes.
