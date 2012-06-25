@@ -7,6 +7,12 @@ namespace System
     public sealed class String
     {
         /// <summary>
+        /// Gets the number of characters in the string.
+        /// </summary>
+        [ScriptField]
+        public int length { get; private set; }
+
+        /// <summary>
         /// Returns the character at the specified index.
         /// </summary>
         /// <param name="index">The index.</param>

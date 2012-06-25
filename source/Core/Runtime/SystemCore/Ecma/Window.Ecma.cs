@@ -59,7 +59,7 @@ namespace System.Browser
         /// Executes a script at runtime.
         /// </summary>
         /// <param name="value">The script text.</param>
-        void eval(string value);
+        object eval(string value);
 
         /// <summary>
         /// Gets a value indicating whether or not the input is a finite number.

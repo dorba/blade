@@ -536,7 +536,7 @@ public sealed class window : Window
 	/// Executes a script at runtime.
 	/// </summary>
 	/// <param name="value">The script text.</param>
-	public static void eval(string value) { }
+    public static object eval(string value) { return null; }
 
 	/// <summary>
 	/// Gets a value indicating whether or not the input is a finite number.
@@ -851,7 +851,7 @@ public sealed class window : Window
 
 	string Window.encodeURIcomponent(string uriComponent) { return null; }
 
-	void Window.eval(string value) { }
+    object Window.eval(string value) { return null; }
 
 	bool Window.isFinite(INumber value) { return false; }
 

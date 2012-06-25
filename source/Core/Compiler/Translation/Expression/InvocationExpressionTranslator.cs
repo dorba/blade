@@ -96,7 +96,7 @@ namespace Blade.Compiler.Translation
                 return returnArgs;
             }
 
-            throw new CompilationException("Compiler Error: Unable to create method invocation.", model);
+            return Enumerable.Empty<ExpressionModel>();
         }
     }
 }
