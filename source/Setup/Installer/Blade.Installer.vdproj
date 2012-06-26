@@ -16,13 +16,13 @@
         "Entry"
         {
         "MsmKey" = "8:_006646B59849CB5F00628B4B39FE291C"
-        "OwnerKey" = "8:_C60E38EE006D93F68279330D8CF5EB50"
+        "OwnerKey" = "8:_CCDDBB62378F43788379BAD8B61E70A1"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_006646B59849CB5F00628B4B39FE291C"
-        "OwnerKey" = "8:_CCDDBB62378F43788379BAD8B61E70A1"
+        "OwnerKey" = "8:_C60E38EE006D93F68279330D8CF5EB50"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -40,13 +40,13 @@
         "Entry"
         {
         "MsmKey" = "8:_3944C9F911026A00B809571DE3D728DB"
-        "OwnerKey" = "8:_CCDDBB62378F43788379BAD8B61E70A1"
+        "OwnerKey" = "8:_C60E38EE006D93F68279330D8CF5EB50"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_3944C9F911026A00B809571DE3D728DB"
-        "OwnerKey" = "8:_C60E38EE006D93F68279330D8CF5EB50"
+        "OwnerKey" = "8:_CCDDBB62378F43788379BAD8B61E70A1"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -75,6 +75,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_60A75F5C89034265A4951842CE32180E"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_6AFDE9E8CC664560BB8F518A13FF5276"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -93,6 +99,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_899C9FEE00314D8E8AAEF79AE792C947"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_9092725A87E34660853F0B1FDCF973C9"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -100,13 +112,13 @@
         "Entry"
         {
         "MsmKey" = "8:_916E1602D0FFDE945AEDCD301DCD5DEC"
-        "OwnerKey" = "8:_C60E38EE006D93F68279330D8CF5EB50"
+        "OwnerKey" = "8:_CCDDBB62378F43788379BAD8B61E70A1"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_916E1602D0FFDE945AEDCD301DCD5DEC"
-        "OwnerKey" = "8:_CCDDBB62378F43788379BAD8B61E70A1"
+        "OwnerKey" = "8:_C60E38EE006D93F68279330D8CF5EB50"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -147,6 +159,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_D471A6D237B4C79847D269D02065495A"
+        "OwnerKey" = "8:_60A75F5C89034265A4951842CE32180E"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_F8925331F7E04345B2012C5A0A96D3D2"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -160,13 +178,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_CCDDBB62378F43788379BAD8B61E70A1"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_88F657D0E00746CFA64D9F0B16E68B77"
+        "OwnerKey" = "8:_60A75F5C89034265A4951842CE32180E"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -179,6 +191,24 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_D471A6D237B4C79847D269D02065495A"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_CCDDBB62378F43788379BAD8B61E70A1"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_916E1602D0FFDE945AEDCD301DCD5DEC"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_88F657D0E00746CFA64D9F0B16E68B77"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -197,12 +227,6 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_006646B59849CB5F00628B4B39FE291C"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_916E1602D0FFDE945AEDCD301DCD5DEC"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -463,6 +487,37 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_60A75F5C89034265A4951842CE32180E"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:jQuery, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_60A75F5C89034265A4951842CE32180E"
+                    {
+                    "Name" = "8:jQuery.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:..\\..\\Bin\\Runtime\\jQuery.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_7FB6EDE6093240C3A7886D20FFAF3398"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_6AFDE9E8CC664560BB8F518A13FF5276"
             {
             "AssemblyRegister" = "3:1"
@@ -529,6 +584,26 @@
                 }
             "SourcePath" = "8:..\\..\\Bin\\Runtime\\System.Core.dll"
             "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_7FB6EDE6093240C3A7886D20FFAF3398"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_899C9FEE00314D8E8AAEF79AE792C947"
+            {
+            "SourcePath" = "8:..\\..\\Bin\\Runtime\\jQuery.xml"
+            "TargetName" = "8:jQuery.xml"
             "Tag" = "8:"
             "Folder" = "8:_7FB6EDE6093240C3A7886D20FFAF3398"
             "Condition" = "8:"
