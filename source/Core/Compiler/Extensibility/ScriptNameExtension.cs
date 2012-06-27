@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using Blade.Compiler.Models;
+﻿using Blade.Compiler.Models;
 
 namespace Blade.Compiler.Extensibility
 {

@@ -52,6 +52,7 @@ namespace Blade.Compiler.Models
 
         /// <summary>
         /// Gets a value indicating whether or not the class is derived.
+        /// Note that classes derived explicitly from object still return false.
         /// </summary>
         public bool IsDerived
         {

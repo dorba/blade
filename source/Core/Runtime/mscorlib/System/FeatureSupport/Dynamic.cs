@@ -82,6 +82,7 @@ namespace System.Runtime.CompilerServices
     [EditorBrowsable(EditorBrowsableState.Never)]
     public abstract class CallSiteBinder { }
 
+    [AttributeUsage(AttributeTargets.All)]
     [EditorBrowsable(EditorBrowsableState.Never)]
     public sealed class DynamicAttribute : Attribute
     {
