@@ -91,42 +91,5 @@ namespace Blade.Compiler.Translation
 
             context.Write(")");
         }
-
-        private bool AssumeEventIdentifier(AssignmentExpression model, TranslationContext context)
-        {
-            if (model == null || model.Assignee == null)
-                return false;
-
-            var assignee = model.Assignee;
-            if (assignee.Definition == null || !(assignee.Definition is EmptyDefinition))
-                return false;
-
-            string prefix = null;
-
-            if (model.Operator == "+=")
-                prefix = "add_";
-            else if (model.Operator == "-=")
-                prefix = "rem_";
-
-            if (prefix == null)
-                return false;
-
-            var mbrAcc = model.LeftExpression as MemberAccessExpression;
-            if (mbrAcc != null)
-                context.WriteModel(mbrAcc.Expression);
-            else context.Write("this");
-
-            context.Write("." + prefix + model.Assignee.Definition.Name + "(");
-            context.WriteModel(model.RightExpression);
-            context.Write(", ");
-
-            if (mbrAcc != null)
-                context.WriteModel(mbrAcc.Expression);
-            else context.Write("this");
-
-            context.Write(")");
-
-            return true;
-        }
     }
 }
