@@ -99,6 +99,7 @@
     <Compile Include="System\Collections\Generic\IEnumerator.cs" />
     <Compile Include="System\Contracts\IRegularExpression.cs" />
     <Compile Include="System\ArrayEnumerator.cs" />
+    <Compile Include="System\Extensions\ScriptObjectLiteralAttribute.cs" />
     <Compile Include="System\Extensions\ScriptMixinAttribute.cs" />
     <Compile Include="System\Extensions\ScriptFieldAttribute.cs" />
     <Compile Include="System\Extensions\ScriptNamespaceAttribute.cs" />

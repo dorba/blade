@@ -11,13 +11,8 @@ namespace Blade.Compiler.Translation
     {
         public override void Translate(NewExpression model, TranslationContext context)
         {
-            // new syntax is ignored for delegate creation
-            if (model.Type != null && model.Type.TypeKind == TypeDefinitionKind.Delegate)
-            {
-                // delegates should have a single argument
-                context.WriteModel(model.Arguments[0].Expression);
+            if (HandleSpecialCases(model, context))
                 return;
-            }
 
             var hasInit = model.Initializer != null &&
                 model.Initializer.Expressions.Any();
@@ -50,6 +45,53 @@ namespace Blade.Compiler.Translation
 
                 context.Write("return $new; })()");
             }
+        }
+
+        private bool HandleSpecialCases(NewExpression model, TranslationContext context)
+        {
+            // check for special cases
+            if (model.Type != null)
+            {
+                if (model.Type.TypeKind == TypeDefinitionKind.Delegate)
+                {
+                    // delegates should have a single argument
+                    context.WriteModel(model.Arguments[0].Expression);
+                    return true;
+                }
+
+                if (model.Type.TypeKind == TypeDefinitionKind.Anonymous)
+                {
+                    // types view as anonymous, instanciate using object literal notation
+                    if (model.Initializer == null || !model.Initializer.Expressions.Any())
+                        context.Write("{}");
+                    else
+                    {
+                        context.WriteLine("{");
+                        context.Indent();
+
+                        for (int i = 0; i < model.Initializer.Expressions.Count; i++)
+                        {
+                            var assignment = model.Initializer.Expressions[i] as AssignmentExpression;
+                            if (assignment == null)
+                                throw new CompilationException("All initializer expressions must be assignments.", model);
+
+                            context.Write(assignment.Assignee.Definition.Name + ": ");
+                            context.WriteModel(assignment.RightExpression);
+
+                            if ((i + 1) < model.Initializer.Expressions.Count)
+                                context.WriteLine(",");
+                        }
+
+                        context.WriteLine();
+                        context.Unindent();
+                        context.Write("}");
+                    }
+
+                    return true;
+                }
+            }
+
+            return false;
         }
     }
 }

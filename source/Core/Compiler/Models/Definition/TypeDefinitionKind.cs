@@ -44,6 +44,11 @@ namespace Blade.Compiler.Models
         /// <summary>
         /// The type is a <see cref="DelegateDefinition"/>
         /// </summary>
-        Delegate = 7
+        Delegate = 7,
+
+        /// <summary>
+        /// The type is a <see cref="ITypeDefinition"/> forced into being viewed as anonymous.
+        /// </summary>
+        Anonymous = 8
     }
 }

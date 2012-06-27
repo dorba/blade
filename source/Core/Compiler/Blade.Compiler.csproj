@@ -44,6 +44,7 @@
     <Compile Include="CompilationException.cs" />
     <Compile Include="CompilationModel.cs" />
     <Compile Include="CompilationPipeline.cs" />
+    <Compile Include="Extensibility\ScriptObjectLiteralExtension.cs" />
     <Compile Include="Extensibility\ScriptMixinExtension.cs" />
     <Compile Include="Models\Definition\EventDefinition.cs" />
     <Compile Include="ProcessProfiler.cs" />
