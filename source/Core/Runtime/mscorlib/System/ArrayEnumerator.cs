@@ -1,11 +1,13 @@
 using System.Collections;
+using System.Reflection;
 
 namespace System
 {
     /// <summary>
     /// The array enumerator implementation
     /// </summary>
-    [ScriptName("ArrayEnum")]
+    [EditorBrowsable(EditorBrowsableState.Never)]
+    [ScriptName("Blade.Enum")]
     public sealed class ArrayEnumerator : IEnumerator
     {
         /// <summary>
