@@ -13,9 +13,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Runtime", "Runtime", "{47F7
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Resources", "Resources", "{1CD597F5-8231-42C8-B309-8A2AA97FBB05}"
 	ProjectSection(SolutionItems) = preProject
-		Resources\Blade.targets = Resources\Blade.targets
+		Resources\Blade.CSharp.targets = Resources\Blade.CSharp.targets
 		Resources\FrameworkList.xml = Resources\FrameworkList.xml
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blade.Utilities", "Utilities\Blade.Utilities.csproj", "{B378997E-3E25-4909-BF72-C9AE316D6084}"
 EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
@@ -70,6 +72,16 @@ Global
 		{59C54ED6-C13E-4806-8856-2A4EAD5C9174}.Release|Mixed Platforms.Build.0 = Release|x86
 		{59C54ED6-C13E-4806-8856-2A4EAD5C9174}.Release|x86.ActiveCfg = Release|x86
 		{59C54ED6-C13E-4806-8856-2A4EAD5C9174}.Release|x86.Build.0 = Release|x86
+		{B378997E-3E25-4909-BF72-C9AE316D6084}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B378997E-3E25-4909-BF72-C9AE316D6084}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B378997E-3E25-4909-BF72-C9AE316D6084}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{B378997E-3E25-4909-BF72-C9AE316D6084}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{B378997E-3E25-4909-BF72-C9AE316D6084}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{B378997E-3E25-4909-BF72-C9AE316D6084}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B378997E-3E25-4909-BF72-C9AE316D6084}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B378997E-3E25-4909-BF72-C9AE316D6084}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{B378997E-3E25-4909-BF72-C9AE316D6084}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{B378997E-3E25-4909-BF72-C9AE316D6084}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

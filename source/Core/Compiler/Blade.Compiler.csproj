@@ -44,6 +44,9 @@
     <Compile Include="CompilationException.cs" />
     <Compile Include="CompilationModel.cs" />
     <Compile Include="CompilationPipeline.cs" />
+    <Compile Include="CompilationRequest.cs" />
+    <Compile Include="SyntaxParsingProcess.cs" />
+    <Compile Include="Diagnostics\BuildVerificationProcess.cs" />
     <Compile Include="Extensibility\ScriptObjectLiteralExtension.cs" />
     <Compile Include="Extensibility\ScriptMixinExtension.cs" />
     <Compile Include="Models\Definition\EventDefinition.cs" />
@@ -321,20 +324,7 @@
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>echo F | xcopy /Y "$(TargetPath)" "$(SolutionDir)..\Bin\Build\"
-
-rem -- set working dir to MSBuild extensions
-if exist "C:\Program Files (x86)" (cd "C:\Program Files (x86)") else (cd "C:\Program Files")
-cd MSBuild
-
-rem -- moving assembly works around inability to overwrite locked files (if in use by another project)
-move /Y Blade\$(TargetFileName) Blade\$(TargetFileName).old
-
-rem -- copy assembly to extension dir
-echo F | xcopy /Y "$(TargetPath)" Blade\$(TargetFileName)
-
-rem -- attempt to remove the old assembly (this may fail if in use by a project)
-del Blade\$(TargetFileName).old</PostBuildEvent>
+    <PostBuildEvent>echo F | xcopy /Y "$(TargetDir)$(TargetName).*" "$(ProjectDir)..\..\Bin\Build\"</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

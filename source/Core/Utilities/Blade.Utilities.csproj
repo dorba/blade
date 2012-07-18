@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B378997E-3E25-4909-BF72-C9AE316D6084}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Blade.Utilities</RootNamespace>
+    <AssemblyName>Blade.Utilities</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Cci.MetadataHelper">
+      <HintPath>Interop\Cci\Lib\Microsoft.Cci.MetadataHelper.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Cci.MetadataModel">
+      <HintPath>Interop\Cci\Lib\Microsoft.Cci.MetadataModel.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Cci.PeReader">
+      <HintPath>Interop\Cci\Lib\Microsoft.Cci.PeReader.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="Microsoft.CSharp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Interop\ScriptEvent.cs" />
+    <Compile Include="Interop\ScriptMethod.cs" />
+    <Compile Include="Interop\ScriptField.cs" />
+    <Compile Include="Interop\ScriptProperty.cs" />
+    <Compile Include="Interop\ScriptMember.cs" />
+    <Compile Include="Interop\ScriptAttribute.cs" />
+    <Compile Include="Interop\ScriptDomain.cs" />
+    <Compile Include="Interop\ScriptAssembly.cs" />
+    <Compile Include="Interop\Cci\CciAssemblyLoader.cs" />
+    <Compile Include="Interop\Cci\CciAssemblyResolver.cs" />
+    <Compile Include="Interop\ScriptType.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Interop\Cci\Lib\Microsoft.Cci.MetadataHelper.dll">
+      <LogicalName>Microsoft.Cci.MetadataHelper</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Interop\Cci\Lib\Microsoft.Cci.MetadataModel.dll">
+      <LogicalName>Microsoft.Cci.MetadataModel</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Interop\Cci\Lib\Microsoft.Cci.PeReader.dll">
+      <LogicalName>Microsoft.Cci.PeReader</LogicalName>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PostBuildEvent>echo F | xcopy /Y "$(TargetDir)$(TargetName).*" "$(ProjectDir)..\..\Bin\Build\"</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

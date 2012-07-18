@@ -7,7 +7,7 @@ namespace System
     [Extension(
         "Blade.Compiler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
         "Blade.Compiler.Extensibility.ScriptNamespaceExtension")]
-    [AttributeUsage(AttributeTargets.Assembly | AttributeTargets.Class | AttributeTargets.Struct)]
+    [AttributeUsage(AttributeTargets.Assembly | AttributeTargets.Class | AttributeTargets.Struct | AttributeTargets.Interface)]
     public sealed class ScriptNamespaceAttribute : Attribute
     {
         /// <summary>

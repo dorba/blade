@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<VSTemplate Version="3.0.0" Type="Item" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005">
+  <TemplateData>
+    <Name>Blade Test Class</Name>
+    <Description>Creates a Blade C# test class.</Description>
+    <Icon>Icon.ico</Icon>
+    <TemplateID>d4e266c1-26fd-43b6-aa8d-df58d6e227f8</TemplateID>
+    <ProjectType>BladeCSharp</ProjectType>
+    <RequiredFrameworkVersion>4.0</RequiredFrameworkVersion>
+    <DefaultName>TestClass.cs</DefaultName>
+  </TemplateData>
+  <TemplateContent>
+    <References>
+      <Reference>
+        <Assembly>mscorlib</Assembly>
+      </Reference>
+      <Reference>
+        <Assembly>System.Core</Assembly>
+      </Reference>
+    </References>
+    <ProjectItem ReplaceParameters="true">TestClass.cs</ProjectItem>
+  </TemplateContent>
+</VSTemplate>

@@ -4,6 +4,9 @@
 bin/
 obj/
 
+PrecompiledWeb/
+TestResults/
+
 *.suo
 *.user
 *.cache

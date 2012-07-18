@@ -9,7 +9,12 @@ namespace Blade.Compiler
     internal class CompilationContext
     {
         /// <summary>
-        /// The c# compilation object.
+        /// The compilation input object.
+        /// </summary>
+        public CompilationRequest Input { get; set; }
+
+        /// <summary>
+        /// The compilation object.
         /// </summary>
         public CommonCompilation Compilation { get; set; }
 

@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F1F3F0E4-DFD4-4A88-83DC-FD848E43F6B6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Blade.Tools.Quality</RootNamespace>
+    <AssemblyName>Blade.Tools.Quality</AssemblyName>
+    <TargetFrameworkIdentifier>Blade</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <NoConfig>true</NoConfig>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;BLADE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\Blade.Tools.Quality.xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;BLADE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\Blade.Tools.Quality.xml</DocumentationFile>
+    <NoStdLib>false</NoStdLib>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System.Core" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\Core\Shared\ConnectionData.cs">
+      <Link>Shared\ConnectionData.cs</Link>
+    </Compile>
+    <Compile Include="..\Core\Shared\DataObject.cs">
+      <Link>Shared\DataObject.cs</Link>
+    </Compile>
+    <Compile Include="..\Core\Shared\OperationData.cs">
+      <Link>Shared\OperationData.cs</Link>
+    </Compile>
+    <Compile Include="..\Core\Shared\RunTestOperation.cs">
+      <Link>Shared\RunTestOperation.cs</Link>
+    </Compile>
+    <Compile Include="..\Core\Shared\WaitOperation.cs">
+      <Link>Shared\WaitOperation.cs</Link>
+    </Compile>
+    <Compile Include="UnitTesting\Assert.cs" />
+    <Compile Include="UnitTesting\ConsoleProxy.cs" />
+    <Compile Include="UnitTesting\TestResult.cs" />
+    <Compile Include="UnitTesting\TestMethodAttribute.cs" />
+    <Compile Include="UnitTesting\TestClassAttribute.cs" />
+    <Compile Include="Host\WaitHandler.cs" />
+    <Compile Include="Host\OperationHandler.cs" />
+    <Compile Include="Host\RunTestHandler.cs" />
+    <Compile Include="Host\IOperationHandler.cs" />
+    <Compile Include="Host\Extensions.cs" />
+    <Compile Include="Host\ServiceProxy.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Host\ClientHost.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildExtensionsPath32)\Blade\Blade.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>echo F | xcopy /Y "$(TargetDir)$(TargetName).*" "$(ProjectDir)..\..\..\Bin\Runtime\"</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

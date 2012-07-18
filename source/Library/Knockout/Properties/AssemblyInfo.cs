@@ -6,8 +6,8 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Knockout API")]
-[assembly: AssemblyDescription("Blade Knockout API Bindings")]
+[assembly: AssemblyTitle("Knockout")]
+[assembly: AssemblyDescription("Knockout JS Library")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Vannatech")]
 [assembly: AssemblyProduct("Blade")]
@@ -36,4 +36,8 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyVersion("2.1.0.0")]
 [assembly: AssemblyFileVersion("2.1.0.0")]
 
+// ignore all namespaces in script
 [assembly: ScriptIgnoreNamespace]
+
+// set output script name to knockout.js
+[assembly: AssemblyScriptName("knockout")]

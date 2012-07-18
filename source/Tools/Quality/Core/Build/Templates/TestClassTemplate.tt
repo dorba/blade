@@ -1,0 +1,21 @@
+﻿<#@ template language="C#" #>
+
+namespace <#= Model.Namespace #>
+{
+	[Microsoft.VisualStudio.TestTools.UnitTesting.TestClassAttribute]
+	public class <#= Model.Name #>
+	{
+		<#
+			foreach (var method in Model.Methods)
+			{
+		#>
+				[Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute]
+				public void <#= method #>()
+				{
+					new Blade.Tools.Quality.Hosting.TestExecutor("<#= Model.FullName #>", "<#= method #>").RunTest();
+				}
+		<#
+			}
+		#>
+	}
+}

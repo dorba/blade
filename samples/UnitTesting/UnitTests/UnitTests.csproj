@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D8354FA7-CAF2-4829-9F58-97A8A75F7B8E}</ProjectGuid>
+    <ProjectTypeGuids>{BF6BC72F-BD32-41BB-AC83-35C9D489F3EE};{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>UnitTests</RootNamespace>
+    <AssemblyName>UnitTests</AssemblyName>
+    <TargetFrameworkIdentifier>Blade</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;BLADE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;BLADE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="jQuery" />
+    <Reference Include="mscorlib" />
+    <Reference Include="System.Core" />
+    <Reference Include="Blade.Tools.Quality" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Web\index.htm" />
+    <Content Include="Web\scripts\test.js" />
+    <Content Include="Web\Bin\Blade.Tools.Quality.Core.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CustomError.cs" />
+    <Compile Include="TestDivBuilder.cs" />
+    <Compile Include="TestPushState.cs" />
+    <Compile Include="TestCalculator.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Application\Application.csproj">
+      <Project>{5B911D14-2C9D-4F9F-8829-FDEDEF0B8345}</Project>
+      <Name>BladeTestLibrary-Jul17</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Blade\Blade.CSharp.Test.targets" />
+</Project>

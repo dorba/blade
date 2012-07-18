@@ -54,10 +54,13 @@
   <ItemGroup>
     <None Include="AssemblyInfo.cs" />
     <None Include="Class1.cs" />
-    <None Include="ProjectTemplate.csproj" />
+    <None Include="ClassLibraryTemplate.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <VSTemplate Include="ProjectTemplate1.vstemplate" />
+    <VSTemplate Include="ClassLibraryTemplate.vstemplate" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v10.0\VSSDK\Microsoft.VsSDK.targets" />

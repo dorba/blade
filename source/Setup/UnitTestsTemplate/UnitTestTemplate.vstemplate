@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<VSTemplate Version="3.0.0" Type="Project" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005">
+  <TemplateData>
+    <Name>Blade C# Unit Tests</Name>
+    <Description>Creates a new Blade C# Unit Test project.</Description>
+    <Icon>Icon.ico</Icon>
+    <ProjectType>BladeCSharp</ProjectType>
+    <RequiredFrameworkVersion>4.0</RequiredFrameworkVersion>
+    <SortOrder>1000</SortOrder>
+    <TemplateID>2737fabd-1fe0-47cd-ae51-139bebe854b7</TemplateID>
+    <CreateNewFolder>true</CreateNewFolder>
+    <DefaultName>BladeUnitTests</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+  </TemplateData>
+  <TemplateContent>
+    <Project File="UnitTestTemplate.csproj" ReplaceParameters="true">
+      <ProjectItem ReplaceParameters="true" TargetFileName="Properties\AssemblyInfo.cs">AssemblyInfo.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" OpenInEditor="true">TestClass1.cs</ProjectItem>
+      <Folder Name="Web" TargetFolderName="Web">
+        <ProjectItem TargetFileName="index.htm">index.htm</ProjectItem>
+        <Folder Name="scripts" TargetFolderName="scripts">
+          <ProjectItem TargetFileName="test.js">test.js</ProjectItem>
+        </Folder>
+        <Folder Name="Bin" TargetFolderName="Bin">
+          <ProjectItem TargetFileName="Blade.Tools.Quality.Core.dll">Blade.Tools.Quality.Core.dll</ProjectItem>
+        </Folder>
+      </Folder>
+    </Project>
+  </TemplateContent>
+</VSTemplate>

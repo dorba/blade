@@ -1,0 +1,69 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="DeployAll">
+
+  <PropertyGroup>
+    <FrameworkRoot>$(MSBuildProgramFiles32)\Reference Assemblies\Microsoft\Framework\Blade\v4.0</FrameworkRoot>
+    <BuildExtRoot>$(MSBuildProgramFiles32)\MSBuild\Blade</BuildExtRoot>
+    <FrameworkList>$(MSBuildThisFileDirectory)\Core\Resources\FrameworkList.xml</FrameworkList>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <!-- Targets files -->
+    <TargetsFiles Include="$(MSBuildThisFileDirectory)\Core\Resources\Blade.CSharp.targets" />
+    <TargetsFiles Include="$(MSBuildThisFileDirectory)\Tools\Quality\Resources\Blade.CSharp.Test.targets" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <!-- Framework Clean Files -->
+    <FrameworkCleanFiles Include="$(FrameworkRoot)\**\*" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <!-- Framework Deployment Files -->
+    <FrameworkDeployFiles Include="$(MSBuildThisFileDirectory)Bin\Runtime\*.dll" />
+    <FrameworkDeployFiles Include="$(MSBuildThisFileDirectory)Bin\Runtime\*.xml" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <!-- Build Clean Files -->
+    <BuildCleanFiles Include="$(BuildExtRoot)\**\*" />  
+  </ItemGroup>
+  
+  <ItemGroup>
+    <!-- Build Deployment Files -->
+    <BuildDeployFiles Include="$(MSBuildThisFileDirectory)Bin\Build\*.dll" />
+    <BuildDeployFiles Include="$(MSBuildThisFileDirectory)Bin\Build\*.targets" />
+  </ItemGroup>
+
+  <!-- Clean Framework Files -->
+  <Target Name="CleanFrameworkFiles">
+    <Delete Files="@(FrameworkCleanFiles)" />
+  </Target>
+  
+  <!-- Clean Build Files -->
+  <Target Name="CleanBuildFiles">
+    <Delete Files="@(BuildCleanFiles)" />
+  </Target>
+  
+  <!-- Deploy Framework Files -->
+  <Target Name="DeployFrameworkFiles">
+    <MakeDir Directories="$(FrameworkRoot)" Condition="!Exists('$(FrameworkRoot)')" />
+    <CallTarget Targets="CleanFrameworkFiles" />
+    <Copy SourceFiles="@(FrameworkDeployFiles)" DestinationFolder="$(FrameworkRoot)" />
+    <!-- Deploy Redist List -->
+    <MakeDir Directories="$(FrameworkRoot)\RedistList" Condition="!Exists('$(FrameworkRoot)\RedistList')" />
+    <Copy SourceFiles="$(FrameworkList)" DestinationFolder="$(FrameworkRoot)\RedistList" />
+  </Target>
+  
+  <!-- Deploy Build Files -->
+  <Target Name="DeployBuildFiles">
+    <MakeDir Directories="$(BuildExtRoot)" Condition="!Exists('$(BuildExtRoot)')" />
+    <CallTarget Targets="CleanBuildFiles" />
+    <Copy SourceFiles="@(BuildDeployFiles)" DestinationFolder="$(BuildExtRoot)" />
+    <!-- Deploy targets files -->
+    <Copy SourceFiles="@(TargetsFiles)" DestinationFolder="$(BuildExtRoot)" />
+  </Target>
+  
+  <Target Name="DeployAll">
+    <CallTarget Targets="DeployFrameworkFiles;DeployBuildFiles" />
+  </Target>
+</Project>

@@ -18,6 +18,7 @@
   </Identifier>
   <References />
   <Content>
+    <VsPackage>|Blade.VSPackage;PkgdefProjectOutputGroup|</VsPackage>
     <ProjectTemplate>ProjectTemplates</ProjectTemplate>
     <ItemTemplate>ItemTemplates</ItemTemplate>
   </Content>

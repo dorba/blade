@@ -9,6 +9,12 @@ namespace jQueryLib
     [ScriptName("$")]
     public class jQuery
     {
+        /// <summary>
+        /// Gets the number of items in the jQuery object.
+        /// </summary>
+        [ScriptField]
+        public int length { get; private set; }
+
         ///<summary>
         /// A multi-purpose callbacks list object that provides a powerful way to manage callback lists.
         ///</summary>
