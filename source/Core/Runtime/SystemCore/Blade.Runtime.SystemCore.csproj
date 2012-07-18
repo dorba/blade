@@ -181,6 +181,24 @@
     <Compile Include="Dom\Events\UIEvent.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Html\HTMLCanvasElement.cs" />
+    <Compile Include="Html\TypedArray\ArrayBuffer.cs" />
+    <Compile Include="Html\TypedArray\ArrayBufferView.cs" />
+    <Compile Include="Html\Objects\CanvasGradient.cs" />
+    <Compile Include="Html\Objects\CanvasPattern.cs" />
+    <Compile Include="Html\Objects\CanvasRenderingContext2D.cs" />
+    <Compile Include="Html\TypedArray\DataView.cs" />
+    <Compile Include="Html\TypedArray\Uint8Array.cs" />
+    <Compile Include="Html\TypedArray\Uint8ClampedArray.cs" />
+    <Compile Include="Html\TypedArray\Int16Array.cs" />
+    <Compile Include="Html\TypedArray\Uint16Array.cs" />
+    <Compile Include="Html\TypedArray\Int32Array.cs" />
+    <Compile Include="Html\TypedArray\Uint32Array.cs" />
+    <Compile Include="Html\TypedArray\Float32Array.cs" />
+    <Compile Include="Html\TypedArray\Float64Array.cs" />
+    <Compile Include="Html\Objects\ICanvasRenderingContext.cs" />
+    <Compile Include="Html\Objects\ImageData.cs" />
+    <Compile Include="Html\TypedArray\Int8Array.cs" />
     <Compile Include="Html\Objects\Option.cs" />
     <Compile Include="Html\Objects\Image.cs" />
     <Compile Include="Html\HTMLSpanElement.cs" />
@@ -400,6 +418,8 @@
     <Compile Include="Ecma\RegExp.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Html\Objects\TextMetrics.cs" />
+    <Compile Include="Html\TypedArray\TypedArray.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Globals\screen.cs" />
   </ItemGroup>
@@ -411,6 +431,9 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Html\TypedArray\Readme.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

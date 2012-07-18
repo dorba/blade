@@ -99,7 +99,7 @@ public static class ArrayExtensions
     /// <param name="array">The array context.</param>
     /// <param name="sortFunc">The sort function.</param>
     [ScriptMixin]
-    public static void sort<T>(this T[] array, Func<int, T, T> sortFunc) { }
+    public static void sort<T>(this T[] array, Func<T, T, int> sortFunc) { }
 
     /// <summary>
     /// Removes a section of an array.

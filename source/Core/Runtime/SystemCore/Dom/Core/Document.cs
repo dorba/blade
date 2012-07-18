@@ -5,10 +5,10 @@
 
 namespace System.Dom
 {
-	/// <summary>
-	/// Represents a document node.
-	/// </summary>
-	public sealed partial class Document : Node
+    /// <summary>
+    /// Represents a document node.
+    /// </summary>
+    public sealed partial class Document : Node
     {
         internal Document() { }
 
@@ -178,5 +178,11 @@ namespace System.Dom
         /// <param name="node">The external node.</param>
         /// <returns>The adopted node.</returns>
         public Node adoptNode(Node node) { return null; }
+
+        /// <summary>
+        /// Gets a value indicating whether the object currently has focus.
+        /// </summary>
+        /// <returns></returns>
+        public bool hasFocus() { return true; }
     }
 }

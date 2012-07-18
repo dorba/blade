@@ -198,6 +198,38 @@ namespace System.Html
         [ScriptField]
         public IFunction onwaiting { get; set; }
 
+        /// <summary>
+        /// Registers an event listener with the target.
+        /// </summary>
+        /// <param name="type">The event type name.</param>
+        /// <param name="listener">The listener to register.</param>
+        /// <param name="useCapture">Whether or not to use capture.</param>
+        public void addEventListener(string type, EventListener listener, bool useCapture) { }
+
+        /// <summary>
+        /// Registers an event handler with the target.
+        /// </summary>
+        /// <param name="type">The event type name.</param>
+        /// <param name="handler">The event handler function.</param>
+        /// <param name="useCapture">Whether or not to use capture.</param>
+        public void addEventListener(string type, EventHandler handler, bool useCapture) { }
+
+        /// <summary>
+        /// Removes an event listener from a target.
+        /// </summary>
+        /// <param name="type">The event type name.</param>
+        /// <param name="listener">The listener to remove.</param>
+        /// <param name="useCapture">Whether or not capture was used.</param>
+        public void removeEventListener(string type, EventListener listener, bool useCapture) { }
+
+        /// <summary>
+        /// Removes an event handler from a target.
+        /// </summary>
+        /// <param name="type">The event type name.</param>
+        /// <param name="handler">The event handler function.</param>
+        /// <param name="useCapture">Whether or not capture was used.</param>
+        public void removeEventListener(string type, EventHandler handler, bool useCapture) { }
+
         #endregion
     }
 }
