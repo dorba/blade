@@ -53,7 +53,7 @@ namespace System.Browser
         /// </summary>
         /// <param name="uriComponent">The URI component.</param>
         /// <returns>An encoded string.</returns>
-        string encodeURIcomponent(string uriComponent);
+        string encodeURIComponent(string uriComponent);
 
         /// <summary>
         /// Executes a script at runtime.

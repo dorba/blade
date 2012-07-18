@@ -1,0 +1,23 @@
+<!--
+***********************************************************************************************
+Blade.Test.targets
+***********************************************************************************************
+-->
+
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <Import Project="Blade.CSharp.targets" />
+  
+  <UsingTask TaskName="Blade.Tools.Quality.Build.TestBuilderTask" AssemblyFile="Blade.Tools.Quality.Core.dll" />
+  
+  <Target Name="AfterScriptCompile">
+    <TestBuilderTask
+      ProjectPath="$(MSBuildProjectFullPath)"
+      OutputPath="$(TargetPath)"
+      SourceList="@(Compile)"
+      FrameworkPath="$(FrameworkPathOverride)"
+      References="@(ReferencePath);@(ReferenceDependencyPaths)">
+    </TestBuilderTask>
+  </Target>
+
+</Project>

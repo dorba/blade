@@ -1,0 +1,68 @@
+﻿<!--
+***********************************************************************************************
+Blade.CSharp.targets
+***********************************************************************************************
+-->
+
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+
+  <PropertyGroup>
+    <TargetFrameworkIdentifier>Blade</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+  </PropertyGroup>
+
+  <UsingTask TaskName="Blade.Build.ScriptGenerationTask" AssemblyFile="Blade.Build.dll" />
+  <UsingTask TaskName="Blade.Build.ScriptDependencyTask" AssemblyFile="Blade.Build.dll" />
+
+  <PropertyGroup>
+    <PrepareResourcesDependsOn>
+      PrepareScriptResource;
+      $(PrepareResourcesDependsOn)
+    </PrepareResourcesDependsOn>
+    <CompileDependsOn>
+      $(CompileDependsOn);
+      CopyScriptDependencies
+    </CompileDependsOn>
+  </PropertyGroup>
+  
+  <Target Name="PrepareScriptResource" DependsOnTargets="ScriptCompile">
+    <ItemGroup Condition="Exists('$(TargetDir)$(TargetName).js')">
+      <EmbeddedResource Include="$(TargetDir)$(TargetName).js">
+        <LogicalName>blade.script.resource</LogicalName>
+      </EmbeddedResource>
+    </ItemGroup>
+  </Target>
+
+  <Target Name="BeforeScriptCompile" />
+  <Target Name="AfterScriptCompile" />
+  
+  <Target Name="ScriptCompile" DependsOnTargets="ResolveReferences">
+    <CallTarget Targets="BeforeScriptCompile" />
+
+    <ConvertToAbsolutePath Paths="@(Compile)">
+      <Output TaskParameter="AbsolutePaths" ItemName="SourceFullPaths" />
+    </ConvertToAbsolutePath>
+
+    <ScriptGenerationTask
+      FrameworkPath="$(FrameworkPathOverride)"
+      TargetDir="$(TargetDir)"
+      TargetName="$(TargetName)"
+      SourceFiles="@(SourceFullPaths)"
+      References="@(ReferencePath);@(ReferenceDependencyPaths)"
+      Definitions="$(DefineConstants)">
+    </ScriptGenerationTask>
+  </Target>
+  
+  <Target Name="CopyScriptDependencies" DependsOnTargets="CopyFilesToOutputDirectory">
+    <ScriptDependencyTask
+      AssemblyPath="$(TargetPath)"
+      FrameworkPath="$(FrameworkPathOverride)"
+      TargetDir="$(TargetDir)">
+    </ScriptDependencyTask>
+
+    <CallTarget Targets="AfterScriptCompile" />
+  </Target>
+
+</Project>

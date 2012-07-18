@@ -36,11 +36,11 @@ namespace Blade.Compiler
         /// <param name="compilation">The compilation object.</param>
         /// <param name="outputStream">The output stream to write to.</param>
         /// <returns>The compilation result.</returns>
-        public CompilationResult Compile(CommonCompilation compilation, Stream outputStream)
+        public CompilationResult Execute(CompilationRequest input, Stream outputStream)
         {
             var context = new CompilationContext
             {
-                Compilation = compilation,
+                Input = input,
                 OutputStream = outputStream,
                 Result = new CompilationResult()
             };

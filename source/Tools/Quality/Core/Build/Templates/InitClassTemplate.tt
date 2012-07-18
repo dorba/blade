@@ -1,0 +1,19 @@
+﻿<#@ template language="C#" #>
+
+[Microsoft.VisualStudio.TestTools.UnitTesting.TestClassAttribute]
+public class Blade_Test_Init
+{
+	public const string WebRootPath = @"<#= ProjectDir #>\Web";
+
+	[Microsoft.VisualStudio.TestTools.UnitTesting.AssemblyInitialize]
+	public static void Initialize(Microsoft.VisualStudio.TestTools.UnitTesting.TestContext testContext)
+	{
+		Blade.Tools.Quality.Hosting.TestExecutionContext.Instance.Begin(testContext, WebRootPath);
+	}
+
+	[Microsoft.VisualStudio.TestTools.UnitTesting.AssemblyCleanup]
+	public static void Cleanup()
+	{
+		Blade.Tools.Quality.Hosting.TestExecutionContext.Instance.End();
+	}
+}

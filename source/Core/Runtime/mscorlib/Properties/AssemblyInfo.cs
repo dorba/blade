@@ -36,3 +36,6 @@ using System.Runtime.InteropServices;
 
 // ignore all namespaces in script
 [assembly: ScriptIgnoreNamespace]
+
+// set output script name to blade.js
+[assembly: AssemblyScriptName("blade")]

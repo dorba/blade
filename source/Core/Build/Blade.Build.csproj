@@ -38,13 +38,18 @@
     <Reference Include="Microsoft.CSharp" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BuildTask.cs" />
+    <Compile Include="ScriptDependencyTask.cs" />
+    <Compile Include="ScriptGenerationTask.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Compiler\Blade.Compiler.csproj">
       <Project>{D9C1D464-EA45-4C6C-82AB-F0D7025BDB51}</Project>
       <Name>Blade.Compiler</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Utilities\Blade.Utilities.csproj">
+      <Project>{B378997E-3E25-4909-BF72-C9AE316D6084}</Project>
+      <Name>Blade.Utilities</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
@@ -53,23 +58,7 @@
     </PreBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
-    <PostBuildEvent>echo F | xcopy /Y "$(TargetPath)" "$(SolutionDir)..\Bin\Build\"
-
-rem -- set working dir to MSBuild extensions
-if exist "C:\Program Files (x86)" (cd "C:\Program Files (x86)") else (cd "C:\Program Files")
-cd MSBuild
-
-rem -- moving assembly works around inability to overwrite locked files (if in use by another project)
-move /Y Blade\$(TargetFileName) Blade\$(TargetFileName).old
-
-rem -- copy assembly to extension dir
-echo F | xcopy /Y "$(TargetPath)" Blade\$(TargetFileName)
-
-rem -- copy latest targets file 
-echo F | xcopy /Y "$(SolutionDir)Resources\Blade.targets" Blade\Blade.targets
-
-rem -- attempt to remove the old assembly (this may fail if in use by a project)
-del Blade\$(TargetFileName).old</PostBuildEvent>
+    <PostBuildEvent>echo F | xcopy /Y "$(TargetDir)$(TargetName).*" "$(ProjectDir)..\..\Bin\Build\"</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

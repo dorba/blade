@@ -239,6 +239,7 @@
     <Compile Include="System\Reflection\AssemblyVersionAttribute.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="System\Reflection\AssemblyScriptNameAttribute.cs" />
     <Compile Include="System\Reflection\DefaultMemberAttribute.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -296,26 +297,14 @@
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="blade.js">
+      <LogicalName>blade.script.resource</LogicalName>
+    </EmbeddedResource>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>echo F | xcopy /Y "$(TargetPath)" "$(SolutionDir)..\Bin\Runtime\"
-echo F | xcopy /Y "$(TargetDir)$(TargetName).xml" "$(SolutionDir)..\Bin\Runtime\"
-
-rem -- set working directory to .NET 4.0 profile
-cd "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\Profile"
-
-rem -- moving assembly works around inability to overwrite locked files (if in use by another project)
-move /Y Blade\mscorlib.dll Blade\mscorlib.dll.old
-
-rem -- copy assembly and XML comments files to profile
-echo F | xcopy /Y "$(TargetDir)mscorlib.dll" Blade\mscorlib.dll
-echo F | xcopy /Y "$(TargetDir)mscorlib.xml" Blade\mscorlib.xml
-
-rem -- make sure latest Framework list file is always available on the profile
-echo F | xcopy /Y "$(SolutionDir)Resources\FrameworkList.xml" Blade\RedistList\FrameworkList.xml
-
-rem -- attempt to remove the old assembly (this may fail if in use by a project)
-del Blade\mscorlib.dll.old</PostBuildEvent>
+    <PostBuildEvent>echo F | xcopy /Y "$(TargetDir)$(TargetName).*" "$(ProjectDir)..\..\..\Bin\Runtime\"</PostBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
     <PreBuildEvent>

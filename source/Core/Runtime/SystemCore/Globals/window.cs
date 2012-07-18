@@ -525,12 +525,12 @@ public sealed class window : Window
     /// <returns>An encoded string.</returns>
     public static string encodeURI(string uri) { return null; }
 
-    /// <summary>
-    /// Replaces applicable characters of a URI component with their UTF-8 encoded representation.
-    /// </summary>
-    /// <param name="uriComponent">The URI component.</param>
-    /// <returns>An encoded string.</returns>
-    public static string encodeURIcomponent(string uriComponent) { return null; }
+	/// <summary>
+	/// Replaces applicable characters of a URI component with their UTF-8 encoded representation.
+	/// </summary>
+	/// <param name="uriComponent">The URI component.</param>
+	/// <returns>An encoded string.</returns>
+	public static string encodeURIComponent(string uriComponent) { return null; }
 
     /// <summary>
     /// Executes a script at runtime.
