@@ -70,8 +70,7 @@ namespace Blade.Tools.Quality.Hosting
         public void Stop()
         {
             // stop the webdev server
-            try { _webDev.Kill(); }
-            catch { _webDev.Close(); }
+            StopWebDev();
 
             // close the WCF connection
             _stopEvent.Set();
@@ -94,6 +93,25 @@ namespace Blade.Tools.Quality.Hosting
                 throw new FileNotFoundException("Unable to locate WebDev Web Server executable.");
 
             return fullPath;
+        }
+
+        private void StopWebDev()
+        {
+            if (_webDev == null || _webDev.HasExited)
+                return;
+
+            // the process only closes with by forcing it
+            try { _webDev.Kill(); }
+            finally
+            {
+                // this only cleans up local
+                // resources for the object
+                _webDev.Close();
+
+                // this repaints the system tray so that
+                // server icons don't build up on each test run
+                // SysTrayCleaner.Cleanup();
+            }
         }
 
         #endregion

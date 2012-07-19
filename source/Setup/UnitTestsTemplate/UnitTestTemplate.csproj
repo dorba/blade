@@ -45,7 +45,6 @@
     <Folder Include="Web\Bin" />
     <Content Include="Web\index.htm" />
     <Content Include="Web\scripts\test.js" />
-    <Content Include="Web\Bin\Blade.Tools.Quality.Core.dll" />
   </ItemGroup>
 	<ItemGroup>
 		<Compile Include="TestClass1.cs" />

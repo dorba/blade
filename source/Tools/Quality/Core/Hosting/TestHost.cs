@@ -19,7 +19,6 @@ namespace Blade.Tools.Quality.Hosting
         private Process[] _processes;
         private TestServer _server;
 
-
         /// <summary>
         /// Initializes the web host provider.
         /// </summary>

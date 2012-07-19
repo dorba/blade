@@ -82,12 +82,14 @@ namespace Blade.Tools.Quality.Build
                 return false;
             }
 
+            var webDir = Path.Combine(projDir, @"Web");
+
             // build test script file
-            WriteJsTestFile(bladeDllPath, Path.Combine(projDir, @"Web\scripts\test.js"),
+            WriteJsTestFile(bladeDllPath, Path.Combine(webDir, @"scripts\test.js"),
                 String.IsNullOrEmpty(FrameworkPath) ? null : new[] { FrameworkPath });
 
             // copy the required Blade Tools assembly
-            DeployThisAssembly(Path.GetDirectoryName(OutputPath));
+            DeployThisAssembly(Path.GetDirectoryName(OutputPath), Path.Combine(webDir, @"Bin"));
 
             return true;
         }
@@ -102,11 +104,15 @@ namespace Blade.Tools.Quality.Build
                     Path.IsPathRooted(p)) ? p : (dirPath + "\\" + p));
         }
 
-        private static void DeployThisAssembly(string outputDir)
+        private static void DeployThisAssembly(string outputDir, string webBin)
         {
             var thisAsm = Assembly.GetExecutingAssembly();
             var thisAsmName = Path.GetFileName(thisAsm.Location);
+
+            // copy to the output dir (e.g, bin/Debug) and unit test web bin
+            // this assembly is used by both msbuild, and the webdev server
             File.Copy(thisAsm.Location, Path.Combine(outputDir, thisAsmName), true);
+            File.Copy(thisAsm.Location, Path.Combine(webBin, thisAsmName), true);
         }
 
         private static void WriteJsTestFile(string bladeDllPath, string targetPath, IEnumerable<string> searchPaths)

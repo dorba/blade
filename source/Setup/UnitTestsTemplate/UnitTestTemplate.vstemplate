@@ -21,9 +21,7 @@
         <Folder Name="scripts" TargetFolderName="scripts">
           <ProjectItem TargetFileName="test.js">test.js</ProjectItem>
         </Folder>
-        <Folder Name="Bin" TargetFolderName="Bin">
-          <ProjectItem TargetFileName="Blade.Tools.Quality.Core.dll">Blade.Tools.Quality.Core.dll</ProjectItem>
-        </Folder>
+        <Folder Name="Bin" TargetFolderName="Bin" />
       </Folder>
     </Project>
   </TemplateContent>

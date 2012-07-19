@@ -63,10 +63,11 @@
       <SubType>Designer</SubType>
     </VSTemplate>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Web\Bin\" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Icon.ico" />
-    <Content Include="Web\Bin\Blade.Tools.Quality.Core.dll" />
     <Content Include="Web\index.htm" />
     <Content Include="Web\scripts\test.js" />
   </ItemGroup>
