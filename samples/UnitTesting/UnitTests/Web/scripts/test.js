@@ -587,7 +587,7 @@ UnitTests.CustomError = (function() {
     }
     var p = CustomError.prototype;
     p.FailWithCustomError = function () {
-        Blade.Assert.Fail('This is a custom error, written at: {0}', [(new Date()).toDateString()]);
+        Blade.Assert.Fail('This is a custom error, written on: {0}', [(new Date()).toDateString()]);
     }
     return CustomError;
 })();
