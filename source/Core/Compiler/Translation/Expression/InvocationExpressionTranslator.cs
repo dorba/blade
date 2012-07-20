@@ -54,46 +54,11 @@ namespace Blade.Compiler.Translation
 
             if (symbolicModel != null)
             {
+                // only method definitions are applicable here
                 var methodDef = symbolicModel.Definition as MethodDefinition;
 
-                // if not a method (e.g, lambda expression) no need to evaluate named/optional args
-                if (methodDef == null) return model.Arguments.Select(a => a.Expression);
-
-                var parameters = methodDef.Parameters;
-
-                // if no arguments are named or optional, return
-                if (!model.Arguments.Any(a => a.HasExplicitTarget) && !parameters.Any(p => p.HasDefaultValue))
-                    return model.Arguments.Select(a => a.Expression);
-
-                var undefinedLiteral = new LiteralExpression { Type = LiteralType.None, Text = "undefined" };
-                var returnArgs = new List<ExpressionModel>(Enumerable.Repeat<LiteralExpression>(undefinedLiteral, parameters.Count));
-
-                for (int i = 0; i < model.Arguments.Count; i++)
-                {
-                    var arg = model.Arguments[i];
-
-                    if (arg.HasExplicitTarget)
-                    {
-                        var index = parameters.IndexOf(parameters.Single(p => p.Name == arg.ParameterName));
-                        returnArgs[index] = arg.Expression;
-                    }
-                    else
-                    {
-                        // positional argument
-                        returnArgs[i] = arg.Expression;
-                    }
-                }
-
-                // no need for undefined at end of invocation
-                // this is default behavior in javascript
-                var last = returnArgs.LastOrDefault();
-                while (last != null && last == undefinedLiteral)
-                {
-                    returnArgs.RemoveAt(returnArgs.Count - 1);
-                    last = returnArgs.LastOrDefault();
-                }
-
-                return returnArgs;
+                return TranslationHelper.GetInvocationArgs((methodDef != null ?
+                    methodDef.Parameters : null), model.Arguments);
             }
 
             return Enumerable.Empty<ExpressionModel>();

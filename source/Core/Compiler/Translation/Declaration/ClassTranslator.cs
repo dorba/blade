@@ -45,9 +45,24 @@ namespace Blade.Compiler.Translation
             if (model.IsDerived)
             {
                 // write explicit call to base class ctor
-                context.Write("$base.constructor.call(this" +
-                    (ctor.HasExplicitBaseCall ? ", " : ""));
-                context.WriteModels(ctor.BaseArguments, ", ");
+                context.Write("$base.constructor.call(this");
+
+                if (ctor.HasExplicitBaseCall)
+                {
+                    // check for arguments to the base ctor
+                    var baseCtor = model.Definition.BaseClass.Constructors.FirstOrDefault();
+                    if (baseCtor != null && baseCtor.Parameters.Any())
+                    {
+                        var baseArgs = TranslationHelper.GetInvocationArgs(baseCtor.Parameters, ctor.BaseArguments);
+                        if (baseArgs.Any())
+                        {
+                            // write base ctor args
+                            context.Write(", ");
+                            context.WriteModels(baseArgs, ", ");
+                        }
+                    }
+                }
+
                 context.WriteLine(");");
             }
 
