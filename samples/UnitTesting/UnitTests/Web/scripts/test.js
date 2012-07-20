@@ -114,7 +114,7 @@ Application.DivBuilder = (function() {
     var p = DivBuilder.prototype;
     p._jqBody = null;
     p.CreateBox = function (color, size) {
-        var box = $('<div></div>');
+        var box = $('\u003cdiv\u003e\u003c/div\u003e');
         box.css('background-color', color);
         box.css('width', size + 'px');
         box.css('height', size + 'px');
@@ -612,8 +612,8 @@ UnitTests.TestCalculator = (function() {
 UnitTests.TestDivBuilder = (function() {
     function TestDivBuilder() {
     }
-    var p = TestDivBuilder.prototype;
     TestDivBuilder.Colors = ['red', 'green', 'blue', 'yellow'];
+    var p = TestDivBuilder.prototype;
     p.BuildColoredBoxes = function () {
         var jqBody = $(document.body);
         jqBody.empty();

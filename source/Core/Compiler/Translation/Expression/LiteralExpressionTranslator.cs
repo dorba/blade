@@ -1,4 +1,5 @@
-﻿using Blade.Compiler.Models;
+﻿using System.Web;
+using Blade.Compiler.Models;
 
 namespace Blade.Compiler.Translation
 {
@@ -14,8 +15,7 @@ namespace Blade.Compiler.Translation
             {
                 if (model.Type == LiteralType.Character || model.Type == LiteralType.String)
                 {
-                    // write as quoted string
-                    context.Write("'" + model.Text.Replace("'", "\\'") + "'");
+                    context.Write("'" + HttpUtility.JavaScriptStringEncode(model.Text) + "'");
                 }
                 else context.Write(model.Text);
             }

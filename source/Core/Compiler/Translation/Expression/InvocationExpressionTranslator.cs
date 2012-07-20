@@ -20,8 +20,12 @@ namespace Blade.Compiler.Translation
             // explicity pass the 'this' context in
             if (context.UsingExplicitCall)
             {
+                // use an explicit invocation call
                 var hasArgs = args.Any() || context.ExtensionMethodTarget != null;
                 context.Write(".call(this" + (hasArgs ? ", " : ""));
+
+                // reset explicit call flag
+                context.UsingExplicitCall = false;
             }
             else context.Write("(");
 

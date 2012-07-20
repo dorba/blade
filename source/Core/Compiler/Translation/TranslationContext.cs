@@ -38,6 +38,11 @@ namespace Blade.Compiler.Translation
         internal ExpressionModel ExtensionMethodTarget { get; set; }
 
         /// <summary>
+        /// Gets or sets the type currently being initialized.
+        /// </summary>
+        internal ITypeDeclarationModel InitializingType { get; set; }
+
+        /// <summary>
         /// Gets the current output length.
         /// </summary>
         public int Length

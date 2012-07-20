@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Blade.Compiler.Models;
 
@@ -39,6 +40,7 @@ namespace Blade.Compiler.Translation
             var ctor = model.Constructors.FirstOrDefault() ?? new ConstructorDeclaration();
             var paramsText = String.Join(", ", ctor.Parameters.Select(p => p.Definition.Name));
 
+            // write the ctor
             context.WriteLine(String.Format("function {0}({1}) {{", model.Definition.Name, paramsText));
             context.Indent();
 
@@ -70,27 +72,30 @@ namespace Blade.Compiler.Translation
             context.Unindent();
             context.WriteLine("}");
 
-            if (model.HasAnyInstanceMembers())
+            // group all members
+            var members = Enumerable.Empty<IMemberDeclarationModel>()
+                .Concat(model.Fields).Concat(model.Events)
+                .Concat(model.Properties).Concat(model.Methods);
+
+            var instanceMembers = new List<IMemberDeclarationModel>();
+
+            // write static members
+            foreach (var item in members)
+            {
+                if (item.IsStatic)
+                    context.WriteModel(item);
+                else instanceMembers.Add(item);
+            }
+
+            // write instance members
+            if (instanceMembers.Any())
             {
                 context.PrepareForDeclarations(model.Definition.Name);
                 context.EnsureLineBreak();
+
+                foreach (var item in instanceMembers)
+                    context.WriteModel(item);
             }
-
-            // write fields
-            foreach (var field in model.Fields)
-                context.WriteModel(field);
-
-            // write properties
-            foreach (var prop in model.Properties)
-                context.WriteModel(prop);
-
-            // write events
-            foreach (var evt in model.Events)
-                context.WriteModel(evt);
-
-            // write methods
-            foreach (var method in model.Methods)
-                context.WriteModel(method);
 
             // apply interfaces
             if (model.Definition.Interfaces.Any())
@@ -102,7 +107,6 @@ namespace Blade.Compiler.Translation
 
                 context.WriteLine(");");
             }
-
 
             // return class constructor and end closure
             context.EnsureLineBreak();
