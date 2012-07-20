@@ -135,6 +135,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_5B5E26ED0F3966C94AA4BB1D3A768580"
+        "OwnerKey" = "8:_ED969726D2604C4E9F19538EDC2EB79F"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_5F9C4B84E0C84D6398C324B6F8F8B12F"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -215,6 +221,12 @@
         {
         "MsmKey" = "8:_899C9FEE00314D8E8AAEF79AE792C947"
         "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_8A9CBA82F8497AE97F8BE2DB852FA4EC"
+        "OwnerKey" = "8:_ED969726D2604C4E9F19538EDC2EB79F"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -442,12 +454,6 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_34AA52805D134D8B8B904AAAE842BCF8"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_F8925331F7E04345B2012C5A0A96D3D2"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -467,6 +473,12 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_ED969726D2604C4E9F19538EDC2EB79F"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_8A9CBA82F8497AE97F8BE2DB852FA4EC"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -587,6 +599,12 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_C60E38EE006D93F68279330D8CF5EB50"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_34AA52805D134D8B8B904AAAE842BCF8"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -1044,7 +1062,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:jQuery, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:jQuery, Version=1.7.2.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
                     "_60A75F5C89034265A4951842CE32180E"
@@ -1295,6 +1313,37 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_8A9CBA82F8497AE97F8BE2DB852FA4EC"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:TRUE"
+            "AssemblyAsmDisplayName" = "8:WebDev.WebHost40, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=x86"
+                "ScatterAssemblies"
+                {
+                    "_8A9CBA82F8497AE97F8BE2DB852FA4EC"
+                    {
+                    "Name" = "8:WebDev.WebHost40.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:WebDev.WebHost40.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_81AE8DD56B534A33929F721C9D1A02E0"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:TRUE"
+            "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_916E1602D0FFDE945AEDCD301DCD5DEC"
@@ -2105,7 +2154,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Blade"
         "ProductCode" = "8:{3E09354C-5462-4C10-9225-ACDD301AD24F}"
-        "PackageCode" = "8:{9ADF0BE7-1972-41F0-BE5B-07355BF9B5CD}"
+        "PackageCode" = "8:{8C368432-0C7C-4A67-A85C-A2EE9BE4612F}"
         "UpgradeCode" = "8:{8F326594-1F11-4BAC-B297-A54C38EB2FB7}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"

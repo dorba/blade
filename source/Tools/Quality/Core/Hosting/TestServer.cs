@@ -1,8 +1,7 @@
 ﻿using System;
-using System.Diagnostics;
-using System.IO;
 using System.ServiceModel;
 using System.Threading;
+using Microsoft.VisualStudio.WebHost;
 
 namespace Blade.Tools.Quality.Hosting
 {
@@ -11,12 +10,15 @@ namespace Blade.Tools.Quality.Hosting
     /// </summary>
     internal class TestServer
     {
+        #region Private Fields
+
         private int _port;
-        private Process _webDev;
-        private ServiceHost _svcHost;
         private string _physicalPath;
         private ITestHostService _serviceProvider;
-        private ManualResetEvent _stopEvent;
+        private ManualResetEvent _hostCloseEvent;
+        private ManualResetEvent _serverStopEvent;
+
+        #endregion
 
         /// <summary>
         /// Gets root URL of the test site.
@@ -35,9 +37,10 @@ namespace Blade.Tools.Quality.Hosting
         {
             _physicalPath = physicalPath;
             _serviceProvider = serviceProvider;
-
             _port = (int)((double)DateTime.Now.Millisecond * 56.0 + 8000.0);
-            _stopEvent = new ManualResetEvent(false);
+
+            _hostCloseEvent = new ManualResetEvent(false);
+            _serverStopEvent = new ManualResetEvent(false);
         }
 
         /// <summary>
@@ -48,20 +51,29 @@ namespace Blade.Tools.Quality.Hosting
             new Thread(() =>
             {
                 // create the cross process service
-                _svcHost = new ServiceHost(_serviceProvider, new Uri("net.pipe://localhost/testhost"));
-                _svcHost.AddServiceEndpoint(typeof(ITestHostService), new NetNamedPipeBinding(), "");
+                var svcHost = new ServiceHost(_serviceProvider, new Uri("net.pipe://localhost/testhost"));
+                svcHost.AddServiceEndpoint(typeof(ITestHostService), new NetNamedPipeBinding(), "");
 
                 // service must be set to single instance mode 
-                _svcHost.Description.Behaviors.Find<ServiceBehaviorAttribute>()
+                svcHost.Description.Behaviors.Find<ServiceBehaviorAttribute>()
                     .InstanceContextMode = InstanceContextMode.Single;
 
-                _svcHost.Open();
-                _stopEvent.WaitOne();
-                _svcHost.Close();
+                // open and wait for close event
+                svcHost.Open();
+                _hostCloseEvent.WaitOne();
+                svcHost.Close();
             }).Start();
 
-            // start the webdav web server process
-            _webDev = Process.Start(GetWebDevPath(), "/port:" + _port + " /path:\"" + _physicalPath + "\"");
+            new Thread(() =>
+            {
+                // start the web server process
+                var server = new Server(_port, "/", _physicalPath);
+
+                // start and wait for cstop event
+                server.Start();
+                _serverStopEvent.WaitOne();
+                server.Stop();
+            }).Start();
         }
 
         /// <summary>
@@ -69,51 +81,8 @@ namespace Blade.Tools.Quality.Hosting
         /// </summary>
         public void Stop()
         {
-            // stop the webdev server
-            StopWebDev();
-
-            // close the WCF connection
-            _stopEvent.Set();
+            _hostCloseEvent.Set();
+            _serverStopEvent.Set();
         }
-
-        #region Helper Methods
-
-        private const string WebDevPath = @"Common Files\microsoft shared\DevServer\10.0\WebDev.WebServer40.EXE";
-
-        private string GetWebDevPath()
-        {
-            var progFilesX86 = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86);
-
-            if (String.IsNullOrEmpty(progFilesX86))
-                throw new DirectoryNotFoundException("Unable to location program files directory.");
-
-            var fullPath = Path.Combine(progFilesX86, WebDevPath);
-
-            if (!File.Exists(fullPath))
-                throw new FileNotFoundException("Unable to locate WebDev Web Server executable.");
-
-            return fullPath;
-        }
-
-        private void StopWebDev()
-        {
-            if (_webDev == null || _webDev.HasExited)
-                return;
-
-            // the process only closes with by forcing it
-            try { _webDev.Kill(); }
-            finally
-            {
-                // this only cleans up local
-                // resources for the object
-                _webDev.Close();
-
-                // this repaints the system tray so that
-                // server icons don't build up on each test run
-                // SysTrayCleaner.Cleanup();
-            }
-        }
-
-        #endregion
     }
 }
