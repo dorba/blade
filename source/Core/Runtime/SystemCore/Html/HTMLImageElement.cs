@@ -26,5 +26,14 @@ namespace System.Html
 
         [ScriptField]
         public string useMap { get; set; }
+
+        [ScriptField]
+        public int naturalHeight { get; private set; }
+
+        [ScriptField]
+        public int naturalWidth { get; private set; }
+
+        [ScriptField]
+        public bool complete { get; private set; }
     }
 }
