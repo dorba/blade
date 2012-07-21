@@ -68,13 +68,16 @@ namespace Blade.Compiler.Translation
                 context.WriteLine(");");
             }
 
+            // filter out fields that are assigned in ctor
+            var fields = WriteCtorInitializers(model.Fields, context);
+
             context.WriteModelBody(ctor.Body);
             context.Unindent();
             context.WriteLine("}");
 
             // group all members
             var members = Enumerable.Empty<IMemberDeclarationModel>()
-                .Concat(model.Fields).Concat(model.Events)
+                .Concat(fields).Concat(model.Events)
                 .Concat(model.Properties).Concat(model.Methods);
 
             var instanceMembers = new List<IMemberDeclarationModel>();
@@ -113,6 +116,27 @@ namespace Blade.Compiler.Translation
             context.WriteLine("return " + model.Definition.Name + ";");
             context.Unindent();
             context.WriteLine("})();");
+        }
+
+        // this writes field initializers that must be in the constructor
+        // essentially this applies to any fields that are assigned mutable values
+        private static IEnumerable<FieldDeclaration> WriteCtorInitializers(IEnumerable<FieldDeclaration> fields, TranslationContext context)
+        {
+            var outList = new List<FieldDeclaration>();
+
+            foreach (var f in fields)
+            {
+                if (f.Initializer != null && !f.IsStatic &&
+                    !(f.Initializer is LiteralExpression))
+                {
+                    context.Write("this." + f.Name + " = ");
+                    context.WriteModel(f.Initializer);
+                    context.WriteLine(";");
+                }
+                else outList.Add(f);
+            }
+
+            return outList;
         }
     }
 }

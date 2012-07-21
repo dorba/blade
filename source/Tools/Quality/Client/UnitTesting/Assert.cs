@@ -113,9 +113,6 @@ namespace Microsoft.VisualStudio.TestTools.UnitTesting
         /// <param name="parameters">The message parameters.</param>
         public static void AreEqual(object expected, object actual, string message = null, object[] parameters = null)
         {
-            if (!(dynamic)expected || !(dynamic)actual)
-                Assert.HandleFail("Assert.AreEqual", message, parameters);
-
             if (expected != actual)
                 Assert.HandleFail("Assert.AreEqual", message, parameters);
         }
@@ -129,9 +126,6 @@ namespace Microsoft.VisualStudio.TestTools.UnitTesting
         /// <param name="parameters">The message parameters.</param>
         public static void AreNotEqual(object notExpected, object actual, string message = null, object[] parameters = null)
         {
-            if (!(dynamic)notExpected || !(dynamic)actual)
-                return;
-
             if (notExpected == actual)
                 Assert.HandleFail("Assert.AreNotEqual", message, parameters);
         }
