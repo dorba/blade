@@ -733,10 +733,10 @@ namespace jQueryLib
         public extern Element[] get();
 
         ///<summary>
-        /// Retrieve the DOM elements matched by the jQuery object.
+        /// Retrieve the DOM element matched by the jQuery object.
         ///</summary>
         ///<param name="index">A zero-based integer indicating which element to retrieve.</param>
-        public extern Element[] get(Number index);
+        public extern Element get(int index);
 
         ///<summary>
         /// Return the number of elements in the jQuery object.
@@ -1471,6 +1471,9 @@ namespace jQueryLib
         ///</summary>
         [ScriptName("")]
         public extern static jQuery Select();
+
+        [ScriptName("")]
+        public extern static jQuery Select(window window);
 
         ///<summary>
         /// Creates DOM elements on the fly from the provided string of raw HTML.
