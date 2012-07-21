@@ -10,7 +10,6 @@ namespace System.Html
     // HTMLCommandElement - http://www.w3.org/TR/2012/WD-html5-20120329/the-command-element.html#the-command-element
     // HTMLTimeElement - http://www.w3.org/TR/2012/WD-html5-20120329/the-time-element.html#the-time-element
     // HTMLEmbedElement - http://www.w3.org/TR/2012/WD-html5-20120329/the-embed-element.html#the-embed-element
-    // HTMLCanvasElement - http://www.w3.org/TR/2012/WD-html5-20120329/the-canvas-element.html#the-canvas-element
     // HTMLVideoElement - http://www.w3.org/TR/2012/WD-html5-20120329/the-video-element.html#the-video-element
     // HTMLAudioElement - http://www.w3.org/TR/2012/WD-html5-20120329/the-audio-element.html#the-audio-element
     // HTMLSourceElement - http://www.w3.org/TR/2012/WD-html5-20120329/the-source-element.html#the-source-element
