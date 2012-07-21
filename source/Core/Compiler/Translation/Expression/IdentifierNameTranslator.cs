@@ -51,6 +51,16 @@ namespace Blade.Compiler.Translation
             {
                 var fullName = model.FullName;
 
+                // normally this will render as a fully qualified name
+                // however, there is one exception when a static value 
+                // is attached to a type that is being initialized
+                if (context.InitializingType != null && memberDef != null)
+                {
+                    // in this case we only render the local name of the type
+                    if (memberDef.ContainingType.Equals(context.InitializingType.Definition))
+                        fullName = context.InitializingType.Name + "." + model.Name;
+                }
+
                 if (!string.IsNullOrEmpty(prefix))
                 {
                     var lastDot = fullName.LastIndexOf('.');

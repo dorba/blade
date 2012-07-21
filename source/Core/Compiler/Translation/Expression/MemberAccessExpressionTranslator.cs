@@ -32,13 +32,11 @@ namespace Blade.Compiler.Translation
             var dotWriter = context.CreatePositionalWriter();
 
             // account for making explicit base calls.
-            var explicitCall = context.UsingExplicitCall;
             if (model.Expression as BaseExpression != null)
                 context.UsingExplicitCall = true;
 
             // write the member name
             context.WriteModel(model.Member);
-            context.UsingExplicitCall = explicitCall;
 
             // check again if any text was written.
             if (context.Length > length)

@@ -115,7 +115,18 @@ namespace Blade.Compiler.Preprocessing.CSharp
             if (value == null)
                 return false;
 
-            return Semantics.GetDeclaredSymbol(value).Equals(symbol);
+            var typeSym = Semantics.GetDeclaredSymbol(value) as INamedTypeSymbol;
+
+            // the symbol can match any type in the inheritance chain
+            while (typeSym != null)
+            {
+                if (typeSym.Equals(symbol))
+                    return true;
+
+                typeSym = typeSym.BaseType;
+            }
+
+            return false;
         }
 
         // get the symbol for from the identifier

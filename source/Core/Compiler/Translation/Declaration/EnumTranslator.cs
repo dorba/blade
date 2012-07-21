@@ -14,8 +14,6 @@ namespace Blade.Compiler.Translation
         {
             if (model == null)
                 return;
-
-
         }
     }
 }

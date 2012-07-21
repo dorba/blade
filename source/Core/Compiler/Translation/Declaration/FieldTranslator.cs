@@ -20,7 +20,13 @@ namespace Blade.Compiler.Translation
             {
                 context.Write(context.GetDefaultValue(model.Definition.Type));
             }
-            else context.WriteModel(model.Initializer);
+            else
+            {
+                // write the initializer
+                context.InitializingType = model.Container;
+                context.WriteModel(model.Initializer);
+                context.InitializingType = null;
+            }
 
             context.WriteLine(";");
         }
