@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using Blade.Compiler.Models;
 
 namespace Blade.Compiler.Translation
@@ -20,7 +21,34 @@ namespace Blade.Compiler.Translation
             if (hasInit)
             {
                 // wrap in function
-                context.Write("(function() { var $new = ");
+                context.Write("(function($0) { ");
+
+                foreach (AssignmentExpression item in model.Initializer.Expressions)
+                {
+                    // work around for Roslyn object initializers not supported
+                    if (item.Assignee.Definition is EmptyDefinition)
+                    {
+                        var typeDef = ((ContainerTypeDefinition)model.Type);
+                        if (typeDef != null)
+                        {
+                            var memberDef = typeDef.Properties.FirstOrDefault(p => p.Name == item.Assignee.Name) as IMemberDefinition ??
+                                typeDef.Fields.FirstOrDefault(f => f.Name == item.Assignee.Name) as IMemberDefinition;
+
+                            if (memberDef != null)
+                            {
+                                item.Assignee.Definition = memberDef;
+                                item.LeftExpression = item.Assignee;
+                            }
+                        }
+                    }
+                    // end Roslyn object initializer workaround
+
+                    context.Write("$0.");
+                    context.WriteModel(item);
+                    context.Write("; ");
+                }
+
+                context.Write("return $0; })(");
             }
 
             // always create types by full name
@@ -29,22 +57,7 @@ namespace Blade.Compiler.Translation
             if (model.HasArguments)
                 context.WriteModels(model.Arguments.Select(a => a.Expression), ", ");
 
-            context.Write(")");
-
-            if (hasInit)
-            {
-                // set assignments, and return result.
-                context.Write(";");
-
-                foreach (var item in model.Initializer.Expressions)
-                {
-                    context.Write("$new.");
-                    context.WriteModel(item);
-                    context.Write(";");
-                }
-
-                context.Write("return $new; })()");
-            }
+            context.Write(hasInit ? "))" : ")");
         }
 
         private bool HandleSpecialCases(NewExpression model, TranslationContext context)

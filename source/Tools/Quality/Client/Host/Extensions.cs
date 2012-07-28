@@ -56,5 +56,15 @@ namespace Blade.Tools.Quality.Host
         {
             return ((dynamic)obj && ((dynamic)obj).Data);
         }
+
+        /// <summary>
+        /// Gets a value indicating if an object has a value (not null or undefined).
+        /// </summary>
+        /// <param name="obj">The object to check.</param>
+        /// <returns>True if the object has a value, false otherwise.</returns>
+        public static bool HasValue(this object obj)
+        {
+            return ((obj != null) && (obj != window.undefined));
+        }
     }
 }

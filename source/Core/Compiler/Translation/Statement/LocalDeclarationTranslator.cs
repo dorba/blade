@@ -12,6 +12,7 @@ namespace Blade.Compiler.Translation
         public override void Translate(LocalDeclarationStatement model, TranslationContext context)
         {
             context.EnsureLineBreak();
+
             context.Write("var ");
             context.WriteModels(model.VariableDeclaration.Variables, ", " + Environment.NewLine);
 

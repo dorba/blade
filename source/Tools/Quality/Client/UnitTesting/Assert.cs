@@ -1,4 +1,5 @@
 ﻿using System;
+using Blade.Tools.Quality.Host;
 
 namespace Microsoft.VisualStudio.TestTools.UnitTesting
 {
@@ -140,11 +141,10 @@ namespace Microsoft.VisualStudio.TestTools.UnitTesting
         /// <param name="parameters">The message parameters.</param>
         public static void AreEqualNumbers(INumber expected, INumber actual, INumber delta, string message = null, object[] parameters = null)
         {
-            if(!(expected is Number) || !(actual is Number))
-                Assert.HandleFail("Assert.AreEqual", message, parameters);
+            NumericPreAssert(expected, actual, "Assert.AreEqualNumbers");
 
             if (Math.abs((double)expected - (double)actual) > (double)delta)
-                Assert.HandleFail("Assert.AreEqual", message, parameters);
+                Assert.HandleFail("Assert.AreEqualNumbers", message, parameters);
         }
 
         /// <summary>
@@ -157,11 +157,10 @@ namespace Microsoft.VisualStudio.TestTools.UnitTesting
         /// <param name="parameters">The message parameters.</param>
         public static void AreNotEqualNumbers(INumber notExpected, INumber actual, INumber delta, string message = null, object[] parameters = null)
         {
-            if (!(notExpected is Number) || !(actual is Number))
-                return;
+            NumericPreAssert(notExpected, actual, "Assert.AreNotEqualNumbers");
 
             if (Math.abs((double)notExpected - (double)actual) <= (double)delta)
-                Assert.HandleFail("Assert.AreNotEqual", message, parameters);
+                Assert.HandleFail("Assert.AreNotEqualNumbers", message, parameters);
         }
 
 
@@ -175,18 +174,20 @@ namespace Microsoft.VisualStudio.TestTools.UnitTesting
         /// <param name="parameters">The message parameters.</param>
         public static void AreEqualStrings(string expected, string actual, bool ignoreCase = false, string message = null, object[] parameters = null)
         {
-            if (!(dynamic)expected || !(dynamic)actual)
-                Assert.HandleFail("Assert.AreEqual", message, parameters);
+            StringPreAssert(expected, actual, "Assert.AreEqualStrings");
 
             if (ignoreCase)
             {
-                if (expected.toLowerCase() != actual.toLowerCase())
-                    Assert.HandleFail("Assert.AreEqual", message, parameters);
+                var targetLowered = (expected != null) ? expected.toLowerCase() : null;
+                var actualLowered = (actual != null) ? actual.toLowerCase() : null;
+
+                if (targetLowered != actualLowered)
+                    Assert.HandleFail("Assert.AreEqualStrings", message, parameters);
             }
             else
             {
                 if (expected != actual)
-                    Assert.HandleFail("Assert.AreEqual", message, parameters);
+                    Assert.HandleFail("Assert.AreEqualStrings", message, parameters);
             }
         }
 
@@ -200,18 +201,20 @@ namespace Microsoft.VisualStudio.TestTools.UnitTesting
         /// <param name="parameters">The message parameters.</param>
         public static void AreNotEqualStrings(string notExpected, string actual, bool ignoreCase = false, string message = null, object[] parameters = null)
         {
-            if (!(dynamic)notExpected || !(dynamic)actual)
-                return;
+            StringPreAssert(notExpected, actual, "Assert.AreNotEqualStrings");
 
             if (ignoreCase)
             {
-                if (notExpected.toLowerCase() == actual.toLowerCase())
-                    Assert.HandleFail("Assert.AreNotEqual", message, parameters);
+                var targetLowered = (notExpected != null) ? notExpected.toLowerCase() : null;
+                var actualLowered = (actual != null) ? actual.toLowerCase() : null;
+
+                if (targetLowered == actualLowered)
+                    Assert.HandleFail("Assert.AreNotEqualStrings", message, parameters);
             }
             else
             {
                 if (notExpected == actual)
-                    Assert.HandleFail("Assert.AreNotEqual", message, parameters);
+                    Assert.HandleFail("Assert.AreNotEqualStrings", message, parameters);
             }
         }
 
@@ -244,6 +247,44 @@ namespace Microsoft.VisualStudio.TestTools.UnitTesting
             }
 
             throw new Error(message);
+        }
+
+        private static void StringPreAssert(string target, string actual, string methodName)
+        {
+            // string values should not be undefined
+            if (target == window.undefined)
+                Assert.HandleFail(methodName, "The target value cannot be undefined.", null);
+
+            if (actual == window.undefined)
+                Assert.HandleFail(methodName, "The actual value cannot be undefined.", null);
+
+            // string values should have a toLowerCase method
+            if (target != null)
+            {
+                if (!target["toLowerCase"])
+                    Assert.HandleFail(methodName, "The target value must be either null or a valid string object.", null);
+            }
+
+            if (actual != null)
+            {
+                if (!actual["toLowerCase"])
+                    Assert.HandleFail(methodName, "The actual value must be either null or a valid string object.", null);
+            }
+        }
+
+        private static void NumericPreAssert(INumber target, INumber actual, string methodName)
+        {
+            if (!target.HasValue())
+                Assert.HandleFail(methodName, "The target value cannot be null or undefined.", null);
+
+            if (!actual.HasValue())
+                Assert.HandleFail(methodName, "The actual value cannot be null or undefined.", null);
+
+            if (window.isNaN(target))
+                Assert.HandleFail(methodName, "The target value must be a valid number.", null);
+
+            if (window.isNaN(actual))
+                Assert.HandleFail(methodName, "The actual value must be a valid number.", null);
         }
     }
 }

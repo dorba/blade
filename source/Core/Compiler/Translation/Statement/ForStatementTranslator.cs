@@ -12,9 +12,6 @@ namespace Blade.Compiler.Translation
     {
         public override void Translate(ForStatement model, TranslationContext context)
         {
-            if (model.Initializers.Any())
-                throw new CompilationException("Initializers are not implemented.", model);
-
             context.EnsureLineBreak();
             context.Write("for(");
 
@@ -22,6 +19,10 @@ namespace Blade.Compiler.Translation
             {
                 context.Write("var ");
                 context.WriteModels(model.VariableDeclaration.Variables, ", ");
+            }
+            else if (model.Initializers != null && model.Initializers.Any())
+            {
+                context.WriteModels(model.Initializers, ", ");
             }
 
             // write condition

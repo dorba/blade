@@ -39,7 +39,7 @@ namespace Blade.Compiler.Translation
             context.WriteModelBody(model.Body);
             context.Unindent();
             context.EnsureLineBreak();
-            context.WriteLine("}");
+            context.WriteLine("};");
         }
     }
 }

@@ -10,18 +10,18 @@ namespace Blade.Compiler.Translation
     {
         public override void Translate(AnonymousMethodExpression model, TranslationContext context)
         {
-            // write function declaration
-            context.Write("function(");
+            // write function declaration, with params
+            context.Write("Blade.del(this, function(");
             context.WriteModels(model.Parameters, ", ");
             context.WriteLine(") {");
-            context.Indent();
 
-            // force no braces on body
-            model.Body.HasBraces = false;
-            context.WriteModel(model.Body);
-            context.EnsureLineBreak();
+            // write inner body
+            context.Indent();
+            context.WriteModelBody(model.Body);
             context.Unindent();
-            context.Write("}");
+
+            // close function declaration
+            context.Write("})");
         }
     }
 }

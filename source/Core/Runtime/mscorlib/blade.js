@@ -16,12 +16,12 @@ Blade = (function () {
 
     // is target assignable to type
     function is(target, type) {
-        if (typeof type == 'function')
+        if (typeof type === 'function')
             return target instanceof type;
-        else if (typeof type == 'string' && target.__contracts) {
+        else if (typeof type === 'string' && target.__contracts) {
             var c = target.__contracts;
             for (var i = 0; i < c.length; i++) {
-                if (c[i] == type) return true;
+                if (c[i] === type) return true;
             }
         }
         return false;
@@ -30,6 +30,13 @@ Blade = (function () {
     // nullable cast
     function as(target, type) {
         return is(target, type) ? target : null;
+    }
+
+    // create delegate
+    function del(ctx, func) {
+        return function () {
+            func.apply(ctx, arguments);
+        }
     }
 
     // array enumerator
@@ -60,7 +67,7 @@ Blade = (function () {
         },
         rem: function (func) {
             for (var i = 0; i < this.a.length; i++) {
-                if (this.a[i][0] == func) {
+                if (this.a[i][0] === func) {
                     this.a.splice(i, 1);
                     break;
                 }
@@ -78,6 +85,7 @@ Blade = (function () {
         impl: impl,
         is: is,
         as: as,
+        del: del,
         Enum: Enum,
         Event: Event
     };
