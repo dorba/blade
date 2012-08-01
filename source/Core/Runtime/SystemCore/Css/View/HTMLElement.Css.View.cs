@@ -14,26 +14,31 @@ namespace System.Html
         /// <summary>
         /// Gets the closest positioned containing element.
         /// </summary>
+        [ScriptField]
         public Element offsetParent { get; private set; }
 
         /// <summary>
         /// Gets the number of pixels between the top of this element and the top of its offset parent.
         /// </summary>
+        [ScriptField]
         public int offsetTop { get; private set; }
 
         /// <summary>
         /// Gets the number of pixels between the left of this element and the left of its offset parent.
         /// </summary>
+        [ScriptField]
         public int offsetLeft { get; private set; }
 
         /// <summary>
         /// Gets the full layout width.
         /// </summary>
+        [ScriptField]
         public int offsetWidth { get; private set; }
 
         /// <summary>
         /// Gets the full layout height.
         /// </summary>
+        [ScriptField]
         public int offsetHeight { get; private set; }
     }
 }
