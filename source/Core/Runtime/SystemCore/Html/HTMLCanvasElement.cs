@@ -3,7 +3,7 @@
 namespace System.Html
 {
     [ScriptExternal]
-    public abstract partial class HTMLCanvasElement : Element
+    public abstract partial class HTMLCanvasElement : HTMLElement
     {
         [ScriptField]
         public ulong height { get; set; }
