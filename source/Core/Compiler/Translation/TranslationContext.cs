@@ -122,7 +122,7 @@ namespace Blade.Compiler.Translation
             if (model == null)
                 return;
 
-            Write((model.IsStatic ? model.Container.Name : "p") + "." + prefix + model.Name + postfix);
+            Write((model.IsStatic ? model.Container.Definition.GetFullName() : "p") + "." + prefix + model.Name + postfix);
         }
 
         /// <summary>

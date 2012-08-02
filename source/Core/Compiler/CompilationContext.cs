@@ -9,6 +9,11 @@ namespace Blade.Compiler
     internal class CompilationContext
     {
         /// <summary>
+        /// Gets or sets the current compilation context.
+        /// </summary>
+        public static CompilationContext Current { get; set; }
+
+        /// <summary>
         /// The compilation input object.
         /// </summary>
         public CompilationRequest Input { get; set; }

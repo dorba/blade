@@ -29,10 +29,10 @@ namespace Blade.Compiler
         /// <summary>
         /// Gets the global statements.
         /// </summary>
-        public IList<StatementModel> GlobalStatements
+        public IList<IModel> GlobalStatements
         {
             get { return _globalStatements; }
-        } private List<StatementModel> _globalStatements;
+        } private List<IModel> _globalStatements;
 
         /// <summary>
         /// Creates a new instance of the class.
@@ -41,7 +41,7 @@ namespace Blade.Compiler
         {
             _enums = new List<EnumDeclaration>();
             _classes = new List<ClassDeclaration>();
-            _globalStatements = new List<StatementModel>();
+            _globalStatements = new List<IModel>();
         }
 
         /// <summary>

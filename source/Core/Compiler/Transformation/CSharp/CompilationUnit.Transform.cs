@@ -23,19 +23,19 @@ namespace Blade.Compiler.Transformation.CSharp
 
         private static void SetGlobalStatements(CompilationModel model)
         {
-            // locate any static constructors
-            var staticCtors = model.Classes
-                .SelectMany(c => c.Constructors)
-                .Where(c => c.IsStatic);
+            //// locate any static constructors
+            //var staticCtors = model.Classes
+            //    .SelectMany(c => c.Constructors)
+            //    .Where(c => c.IsStatic);
 
-            // add global new expressions for each one
-            foreach (var ctor in staticCtors)
-            {
-                model.GlobalStatements.Add(new ExpressionStatement
-                {
-                    Expression = new NewExpression { Type = ctor.Definition.ContainingType }
-                });
-            }
+            //// add global new expressions for each one
+            //foreach (var ctor in staticCtors)
+            //{
+            //    model.GlobalStatements.Add(new ExpressionStatement
+            //    {
+            //        Expression = new NewExpression { Type = ctor.Definition.ContainingType }
+            //    });
+            //}
         }
     }
 }

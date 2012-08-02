@@ -34,10 +34,11 @@ namespace Blade.Compiler.Translation
             }
 
             // write the class constructor
-            if (model.Constructors.Count > 1)
+            var instanceCtors = model.Constructors.Where(c => !c.IsStatic);
+            if (instanceCtors.Count() > 1)
                 throw new CompilationException("Constructor overloading is not supported.", model.Constructors[1]);
 
-            var ctor = model.Constructors.FirstOrDefault() ?? new ConstructorDeclaration();
+            var ctor = instanceCtors.FirstOrDefault() ?? new ConstructorDeclaration();
             var paramsText = String.Join(", ", ctor.Parameters.Select(p => p.Definition.Name));
 
             // write the ctor
@@ -81,12 +82,13 @@ namespace Blade.Compiler.Translation
                 .Concat(model.Properties).Concat(model.Methods);
 
             var instanceMembers = new List<IMemberDeclarationModel>();
+            var staticMembers = new List<IMemberDeclarationModel>();
 
-            // write static members
+            // separate instance and static members
             foreach (var item in members)
             {
                 if (item.IsStatic)
-                    context.WriteModel(item);
+                    staticMembers.Add(item);
                 else instanceMembers.Add(item);
             }
 
@@ -116,6 +118,21 @@ namespace Blade.Compiler.Translation
             context.WriteLine("return " + model.Definition.Name + ";");
             context.Unindent();
             context.WriteLine("})();");
+
+            // write static members as global statements
+            foreach (var item in staticMembers)
+            {
+                CompilationContext.Current.Model.GlobalStatements.Add(item);
+                context.WriteModel(item);
+            }
+
+            // if the class has a static constructor, add to globals
+            var staticCtor = model.Constructors.FirstOrDefault(c => c.IsStatic);
+            if (staticCtor != null)
+            {
+                staticCtor.Body.HasBraces = false;
+                CompilationContext.Current.Model.GlobalStatements.Add(staticCtor.Body);
+            }
         }
 
         // this writes field initializers that must be in the constructor

@@ -16,7 +16,13 @@ namespace Blade.Compiler.Validation.CSharp
         public override void Validate(ClassDeclarationSyntax node, CommonSyntaxTree tree, CompilationResult result)
         {
             // check for overloaded constructors
-            if (node.Members.OfType<ConstructorDeclarationSyntax>().Count() > 1)
+            var ctors = node.Members.OfType<ConstructorDeclarationSyntax>();
+            var ctorCount = ctors.Count();
+
+            if (ctors.Any(c => c.Modifiers.Any(m => m.ValueText == "static")))
+                ctorCount--;
+
+            if (ctorCount > 1)
                 AddError("Constructor overloading is not supported. Consider using optional parameters instead.");
         }
     }

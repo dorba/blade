@@ -45,8 +45,12 @@ namespace Blade.Compiler
                 Result = new CompilationResult()
             };
 
+            // TODO: move model registry into 
+            // compilation context instance
+
             // this locks the current scope
             ModelRegistry.BeginRegistration();
+            CompilationContext.Current = context;
             var profiler = new ProcessProfiler();
 
             try
@@ -70,6 +74,7 @@ namespace Blade.Compiler
             {
                 // release lock
                 ModelRegistry.EndRegistration();
+                CompilationContext.Current = null;
                 profiler.End();
             }
 
