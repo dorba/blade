@@ -45,6 +45,10 @@ namespace Blade.Compiler.Translation
             context.WriteLine(String.Format("function {0}({1}) {{", model.Definition.Name, paramsText));
             context.Indent();
 
+            // write initialized fields, and return remaining fields
+            // those remaining may safely be attached to the prototype
+            var pFields = WriteCtorInitializers(model.Fields, context);
+
             if (model.IsDerived)
             {
                 // write explicit call to base class ctor
@@ -69,16 +73,13 @@ namespace Blade.Compiler.Translation
                 context.WriteLine(");");
             }
 
-            // filter out fields that are assigned in ctor
-            var fields = WriteCtorInitializers(model.Fields, context);
-
             context.WriteModelBody(ctor.Body);
             context.Unindent();
             context.WriteLine("}");
 
             // group all members
             var members = Enumerable.Empty<IMemberDeclarationModel>()
-                .Concat(fields).Concat(model.Events)
+                .Concat(pFields).Concat(model.Events)
                 .Concat(model.Properties).Concat(model.Methods);
 
             var instanceMembers = new List<IMemberDeclarationModel>();
