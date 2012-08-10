@@ -224,7 +224,17 @@ public static class ArrayExtensions
     /// <param name="thisObj">The object to use as this context.</param>
     /// <returns>The newly created array.</returns>
     [ScriptMixin]
-    public static T[] map<T, TOut>(this T[] array, Func<T, int, T[], TOut> callback, object thisObj = null) { return null; }
+    public static object[] map<T>(this T[] array, Func<T, int, T[], object> callback, object thisObj = null) { return null; }
+
+    /// <summary>
+    /// Creates a new array with the results of calling a provided function on every element in this array.
+    /// </summary>
+    /// <param name="array">The array context.</param>
+    /// <param name="callback">The mapping callback function.</param>
+    /// <param name="thisObj">The object to use as this context.</param>
+    /// <returns>The newly created array.</returns>
+    [ScriptMixin]
+    public static TOut[] map<T, TOut>(this T[] array, Func<T, int, T[], TOut> callback, object thisObj = null) { return null; }
 
     /// <summary>
     /// Returns true if at least one element in this array satisfies the provided testing function.
