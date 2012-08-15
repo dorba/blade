@@ -9,7 +9,7 @@ namespace Blade.Compiler.Transformation.CSharp
         public override IEnumerable<IModel> VisitSimpleLambdaExpression(SimpleLambdaExpressionSyntax node)
         {
             var model = Create<LambdaExpression>(node);
-            model.Body = TransformToSingle<ExpressionModel>(node.Body);
+            model.Body = TransformToSingle<ISyntacticModel>(node.Body);
             model.Parameters.Add(TransformToSingle<ParameterDeclaration>(node.Parameter));
 
             // if the lambda returns a value an the body is an expression,
