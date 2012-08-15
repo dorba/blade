@@ -12,6 +12,18 @@ namespace Blade.Compiler.Transformation.CSharp
             model.Body = TransformToSingle<ISyntacticModel>(node.Body);
             TransformInto<ParameterDeclaration>(node.ParameterList, model.Parameters);
 
+            // if the lambda returns a value an the body is an expression,
+            // we should explicitly include the return statement
+            var expr = model.Body as ExpressionModel;
+            if (expr != null)
+            {
+                var info = GetSymbol(node) as MethodSymbol;
+                if (info != null && info.ReturnType.SpecialType != Roslyn.Compilers.SpecialType.System_Void)
+                {
+                    model.Body = new ReturnStatement { Expression = expr };
+                }
+            }
+
             yield return model;
         }
     }

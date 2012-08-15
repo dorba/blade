@@ -35,7 +35,7 @@ Blade = (function () {
     // create delegate
     function del(ctx, func) {
         return function () {
-            func.apply(ctx, arguments);
+            return func.apply(ctx, arguments);
         }
     }
 
