@@ -95,7 +95,9 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Browser\JSON.cs" />
     <Compile Include="Browser\ReadyState.cs" />
+    <Compile Include="Browser\Storage.cs" />
     <Compile Include="Browser\XMLHttpRequest.cs" />
     <Compile Include="Browser\Window.cs" />
     <Compile Include="Browser\History.cs">
