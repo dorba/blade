@@ -93,6 +93,24 @@ public sealed class window : Window
     public static Element frameElement { get; private set; }
 
     /// <summary>
+    /// Provides a Storage object for an origin.
+    /// </summary>
+    [ScriptField]
+    public static Storage localStorage { get; private set; }
+
+    /// <summary>
+    /// Represents the set of storage areas specific to the current top-level browsing context.
+    /// </summary>
+    [ScriptField]
+    public static Storage sessionStorage { get; private set; }
+
+    /// <summary>
+    /// The JSON object contains methods for converting values to JavaScript Object Notation (JSON) and for converting JSON to values.
+    /// </summary>
+    [ScriptField]
+    public static JSON JSON { get; private set; }
+
+    /// <summary>
     /// Closes the window.
     /// </summary>
     public static void close() { }
@@ -632,6 +650,12 @@ public sealed class window : Window
     Window Window.parent { get { return null; } }
 
     Element Window.frameElement { get { return null; } }
+
+    Storage Window.localStorage { get { return null; } }
+
+    Storage Window.sessionStorage { get { return null; } }
+
+    JSON Window.JSON { get { return null; } }
 
     void Window.close() { }
 
