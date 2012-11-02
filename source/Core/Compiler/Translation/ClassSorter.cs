@@ -37,7 +37,7 @@ namespace Blade.Compiler.Translation
                 while (next != null)
                 {
                     target = next;
-                    next = list.SingleOrDefault(c => c.Definition.Equals(next.Definition.BaseClass));
+                    next = list.SingleOrDefault(c => c.Definition.GetFullName() == next.Definition.BaseClass.GetFullName());
                 }
 
                 yield return target;
