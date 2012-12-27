@@ -1,11 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
+Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2010
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Blade.Installer", "Installer\Blade.Installer.vdproj", "{406C194E-7816-47DC-B155-EEFE8ACD8846}"
-	ProjectSection(ProjectDependencies) = postProject
-		{1DB8ADC3-ED88-453B-BCCE-5FB729ABF3C5} = {1DB8ADC3-ED88-453B-BCCE-5FB729ABF3C5}
-	EndProjectSection
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blade.ClassItemTemplate", "ClassItemTemplate\Blade.ClassItemTemplate.csproj", "{81629B6E-3C38-4325-869E-A39A3324B68E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blade.ClassLibraryTemplate", "ClassLibraryTemplate\Blade.ClassLibraryTemplate.csproj", "{0D671456-3194-4E99-A309-C75D40A0E45F}"
@@ -31,12 +26,6 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{406C194E-7816-47DC-B155-EEFE8ACD8846}.Debug|Any CPU.ActiveCfg = Debug
-		{406C194E-7816-47DC-B155-EEFE8ACD8846}.Debug|Mixed Platforms.ActiveCfg = Debug
-		{406C194E-7816-47DC-B155-EEFE8ACD8846}.Debug|x86.ActiveCfg = Debug
-		{406C194E-7816-47DC-B155-EEFE8ACD8846}.Release|Any CPU.ActiveCfg = Release
-		{406C194E-7816-47DC-B155-EEFE8ACD8846}.Release|Mixed Platforms.ActiveCfg = Release
-		{406C194E-7816-47DC-B155-EEFE8ACD8846}.Release|x86.ActiveCfg = Release
 		{81629B6E-3C38-4325-869E-A39A3324B68E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{81629B6E-3C38-4325-869E-A39A3324B68E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{81629B6E-3C38-4325-869E-A39A3324B68E}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
