@@ -72,7 +72,7 @@
     <Compile Include="Models\Common\Argument.cs" />
     <Compile Include="Models\Common\ArrayRankSpecifier.cs" />
     <Compile Include="Models\Common\VariableDeclarator.cs" />
-    <Compile Include="Models\Common\VariableDecleration.cs" />
+    <Compile Include="Models\Common\VariableDeclaration.cs" />
     <Compile Include="Models\Declaration\ClassDeclaration.cs" />
     <Compile Include="Models\Declaration\ConstructorDeclaration.cs" />
     <Compile Include="Models\Declaration\EnumMemberDeclaration.cs" />
