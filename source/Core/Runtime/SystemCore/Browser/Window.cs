@@ -251,6 +251,15 @@ namespace System.Browser
         /// <param name="intervalId">The interval ID.</param>
         void clearInterval(int intervalId);
 
+        /// <summary>
+        /// Tells the browser that you wish to perform an animation and requests that the browser schedule a repaint of the window for the next animation frame.
+        /// </summary>
+        /// <remarks>
+        /// This is provided for convenience but is not supported in all browsers, see https://developer.mozilla.org/en-US/docs/DOM/window.requestAnimationFrame#Browser_compatibility for details.
+        /// </remarks>
+        /// <param name="callback"></param>
+        void requestAnimationFrame(IFunction callback);
+
         #region Events
 
         [ScriptField]

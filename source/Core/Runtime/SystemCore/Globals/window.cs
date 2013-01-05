@@ -255,6 +255,14 @@ public sealed class window : Window
     /// <param name="intervalId">The interval ID.</param>
     public static void clearInterval(int intervalId) { }
 
+    /// <summary>
+    /// Tells the browser that you wish to perform an animation and requests that the browser schedule a repaint of the window for the next animation frame.
+    /// </summary>
+    /// <remarks>
+    /// This is provided for convenience but is not supported in all browsers, see https://developer.mozilla.org/en-US/docs/DOM/window.requestAnimationFrame#Browser_compatibility for details.
+    /// </remarks>
+    /// <param name="callback"></param>
+    public static void requestAnimationFrame(IFunction callback) { }
     #region Events
 
     public static IFunction onabort { get; set; }
@@ -698,6 +706,8 @@ public sealed class window : Window
     int Window.setInterval(string code, int delay) { return 0; }
 
     void Window.clearInterval(int intervalId) { }
+
+    void Window.requestAnimationFrame(IFunction callback) { }
 
     IFunction Window.onabort { get; set; }
 

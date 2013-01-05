@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using Blade.Compiler.Models;
 using Roslyn.Compilers.CSharp;
+using System;
+using System.Globalization;
 
 namespace Blade.Compiler.Transformation.CSharp
 {
@@ -9,8 +11,11 @@ namespace Blade.Compiler.Transformation.CSharp
         public override IEnumerable<IModel> VisitLiteralExpression(LiteralExpressionSyntax node)
         {
             var model = Create<LiteralExpression>(node);
-            model.Text = node.Token.ValueText;
             model.Type = GetLiteralType(node.Kind);
+            if (model.Type == LiteralType.Number)
+                model.Text = Convert.ToString(node.Token.Value, CultureInfo.InvariantCulture);
+            else
+                model.Text = node.Token.ValueText;
 
             yield return model;
         }
