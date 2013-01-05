@@ -21,7 +21,7 @@
   InstallDirRegKey HKLM "Software\Vannatech\Blade" "InstallDir"
 
   ;Request application privileges for Windows Vista
-  RequestExecutionLevel user
+  RequestExecutionLevel admin
 
 ;--------------------------------
 ;Interface Settings
