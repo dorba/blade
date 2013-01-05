@@ -83,13 +83,13 @@ Section "Core components" SecCore
   WriteUninstaller "$INSTDIR\Uninstall.exe"
 SectionEnd
 
-Section "" SEC_VS2010
+Section /o "" SEC_VS2010
   SetOutPath $VS2010Path${VS_EXT_PATH}
   File /r "VSIXOutput\*"
   WriteRegStr HKLM "Software\Vannatech\Blade\VS2010" "ExtInstallDir" $VS2010Path${VS_EXT_PATH}
 SectionEnd
 
-Section "" SEC_VS2012
+Section /o "" SEC_VS2012
   SetOutPath $VS2012Path${VS_EXT_PATH}
   File /r "VSIXOutput\*"
   WriteRegStr HKLM "Software\Vannatech\Blade\VS2012" "ExtInstallDir" $VS2012Path${VS_EXT_PATH}
@@ -144,10 +144,12 @@ Function .onInit
   ReadRegStr $VS2010Path HKLM SOFTWARE\Microsoft\VisualStudio\10.0 "InstallDir"
   ${If} $VS2010Path != ""
     SectionSetText ${SEC_VS2010} "${VS2010_SECTIONAME}"
+    SectionSetFlags ${SEC_VS2010} ${SF_SELECTED}
   ${EndIf}
 
   ReadRegStr $VS2012Path HKLM SOFTWARE\Microsoft\VisualStudio\11.0 "InstallDir"
   ${If} $VS2012Path != ""
     SectionSetText ${SEC_VS2012} "${VS2012_SECTIONAME}"
+    SectionSetFlags ${SEC_VS2012} ${SF_SELECTED}
   ${EndIf}
 FunctionEnd
