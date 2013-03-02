@@ -56,13 +56,16 @@ namespace Blade.Compiler.Extensibility
                 ValidateBaseClass(classDecl, classDecl.Definition.BaseClass);
         }
 
-
         private void ValidateBaseClass(ClassDeclaration originalDecl, ClassDefinition classDef)
         {
-            if (classDef.Constructors.Any(c => !c.Symbol.IsImplicitlyDeclared) ||
+            var extensionFactory = new ExtensionFactory();
+            var extensions = extensionFactory.GetExtensions(classDef.Symbol);
+
+            if (!extensions.Any(e => e.GetType() == typeof(ScriptObjectLiteralExtension)) &&
+                (classDef.Constructors.Any(c => !c.Symbol.IsImplicitlyDeclared) ||
                 classDef.Methods.Any(m => !m.Symbol.IsImplicitlyDeclared) ||
                 classDef.Properties.Any(p => p.MemberKind != MemberDefinitionKind.Field) ||
-                classDef.Fields.Any(f => f.MemberKind != MemberDefinitionKind.Field))
+                classDef.Fields.Any(f => f.MemberKind != MemberDefinitionKind.Field)))
             {
                 throw new CompilationException("A class using the [ScriptObjectLiteral] attribute cannot inherit from class " + classDef.Symbol.GetFullName() +
                     ", because it contains one or more declarations that are not compatible with object literal notations.", originalDecl);
