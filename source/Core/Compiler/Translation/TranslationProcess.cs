@@ -3,9 +3,9 @@ using System.Linq;
 
 namespace Blade.Compiler.Translation
 {
-    /// <summary>
-    /// A translator for converting models in javascript.
-    /// </summary>
+	/// <summary>
+	/// A translator for converting models in javascript.
+	/// </summary>
     internal class TranslationProcess : ICompilationProcess
     {
         /// <summary>
