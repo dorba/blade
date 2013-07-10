@@ -43,6 +43,11 @@ namespace Blade.Compiler.Translation
         internal ITypeDeclarationModel InitializingType { get; set; }
 
         /// <summary>
+        /// Gets or sets a value indicating whether this instance is writing global statements.
+        /// </summary>
+        internal bool IsWritingGlobalStatements { get; set; }
+
+        /// <summary>
         /// Gets the current output length.
         /// </summary>
         public int Length
