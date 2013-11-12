@@ -9,6 +9,39 @@ namespace System
     /// </summary>
     public sealed class Date
     {
+        #region Constructors
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Date"/> class.
+        /// </summary>
+        public Date() { }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Date"/> class.
+        /// </summary>
+        /// <param name="milliseconds">The milliseconds.</param>
+        public Date(long milliseconds) { }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Date"/> class.
+        /// </summary>
+        /// <param name="dateString">The date string.</param>
+        public Date(string dateString) { }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Date"/> class.
+        /// </summary>
+        /// <param name="year">The year.</param>
+        /// <param name="month">The month.</param>
+        /// <param name="date">The date.</param>
+        /// <param name="hours">The hours.</param>
+        /// <param name="minutes">The minutes.</param>
+        /// <param name="seconds">The seconds.</param>
+        /// <param name="milliseconds">The milliseconds.</param>
+        public Date(int year, int month, int date, int hours = 0, int minutes = 0, int seconds = 0, int milliseconds = 0) { }
+
+        #endregion
+
         #region Instance Members
 
         /// <summary>

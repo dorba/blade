@@ -3,9 +3,9 @@ using System.Linq;
 
 namespace Blade.Compiler.Translation
 {
-    /// <summary>
-    /// A translator for converting models in javascript.
-    /// </summary>
+	/// <summary>
+	/// A translator for converting models in javascript.
+	/// </summary>
     internal class TranslationProcess : ICompilationProcess
     {
         /// <summary>
@@ -37,8 +37,10 @@ namespace Blade.Compiler.Translation
             if (context.Model.GlobalStatements.Any())
             {
                 translationCtx.WriteLine();
+                translationCtx.IsWritingGlobalStatements = true;
                 foreach (var item in context.Model.GlobalStatements)
                     translationCtx.WriteModel(item);
+                translationCtx.IsWritingGlobalStatements = false;
             }
         }
     }
